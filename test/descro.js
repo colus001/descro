@@ -1,12 +1,6 @@
 var Descro = artifacts.require('./Descro.sol');
 
-const CREATED = 0;
-const DEPOSITED = 1;
-const PRODUCT_SENT = 2;
-const APPROVED = 3;
-const CANCELLED = 4;
-const COMPLETED = 5;
-const REFUNDED = 6;
+const { STATUS } = require('./constants');
 
 const weiToEther = (wei) => web3.fromWei((typeof wei === 'number') ? wei : wei.toNumber())
 
@@ -76,14 +70,14 @@ contract('Descro', function (accounts) {
         return getStatus(escrowId)()
       })
       .then((status) => {
-        assert.equal(status, CREATED, 'Failed to set status created')
+        assert.equal(status, STATUS.CREATED, 'Failed to set status created')
 
         return descro.deposit
           .sendTransaction(escrowId, { from: buyer, value: etherToWei(TEST_AMOUNT) })
           .then(getStatus(escrowId))
       })
       .then((status) => {
-        assert.equal(status, DEPOSITED, 'Failed to deposit')
+        assert.equal(status, STATUS.DEPOSITED, 'Failed to deposit')
 
         return descro.getBalanceByEscrowId.call(escrowId);
       })
@@ -96,21 +90,21 @@ contract('Descro', function (accounts) {
           .then(getStatus(escrowId))
       })
       .then((status) => {
-        assert.equal(status, PRODUCT_SENT, 'Product has not been sent properly')
+        assert.equal(status, STATUS.PRODUCT_SENT, 'Product has not been sent properly')
 
         return descro.approve
           .sendTransaction(escrowId, { from : buyer })
           .then(getStatus(escrowId))
       })
       .then((status) => {
-        assert.equal(status, APPROVED, 'Escrow has not been approved properly')
+        assert.equal(status, STATUS.APPROVED, 'Escrow has not been approved properly')
 
         return descro.withdraw
           .sendTransaction(escrowId, { from: seller })
           .then(getStatus(escrowId))
       })
       .then((status) => {
-        assert.equal(status, COMPLETED, 'Escrow has not been approved properly')
+        assert.equal(status, STATUS.COMPLETED, 'Escrow has not been approved properly')
       })
   })
 
@@ -145,21 +139,21 @@ contract('Descro', function (accounts) {
           .then(getStatus(escrowId))
       })
       .then((status) => {
-        assert.equal(status, PRODUCT_SENT, 'Product has not been sent properly')
+        assert.equal(status, STATUS.PRODUCT_SENT, 'Product has not been sent properly')
 
         return descro.approve
           .sendTransaction(escrowId, { from : buyer })
           .then(getStatus(escrowId))
       })
       .then((status) => {
-        assert.equal(status, APPROVED, 'Escrow has not been approved properly')
+        assert.equal(status, STATUS.APPROVED, 'Escrow has not been approved properly')
 
         return descro.withdraw
           .sendTransaction(escrowId, { from: seller })
           .then(getStatus(escrowId))
       })
       .then((status) => {
-        assert.equal(status, COMPLETED, 'Escrow has not been approved properly')
+        assert.equal(status, STATUS.COMPLETED, 'Escrow has not been approved properly')
       })
   })
 
@@ -186,7 +180,7 @@ contract('Descro', function (accounts) {
       .then(() => descro.getBalance.call({ from: accounts[0] }))
       .then((balance) => {
         const amount = Number(weiToEther(balance))
-        assert.isAtLeast(amount, 1.0002, "Contract must have balance")
+        assert.isAtLeast(amount, 0.0002, "Contract must have balance")
       })
   })
 })
