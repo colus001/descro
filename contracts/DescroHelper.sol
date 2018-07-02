@@ -80,6 +80,10 @@ contract DescroHelper is Ownable {
     feeRate = _feeRate;
   }
 
+  function setMaxFee(uint _maxFee) external onlyOwner {
+    maxFee = _maxFee;
+  }
+
   function calculateFee(uint _balance) public view returns (uint) {
     uint ratioFee = _balance.div(feeRate);
     return Math.min(maxFee, Math.max(ratioFee, minFee));
