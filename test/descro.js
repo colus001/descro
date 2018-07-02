@@ -166,7 +166,7 @@ contract('Descro', function (accounts) {
       })
       .then(() => descro.calculateFee.call(etherToWei(0.01)))
       .then((fee) => {
-        assert.equal(Number(weiToEther(fee)), 0.0001, "Fee calculation by fixed ether");
+        assert.equal(Number(weiToEther(fee)), 0.0001, "Fee calculation by fixed min ether");
       })
       .then(() => descro.calculateFee.call(etherToWei(10000000)))
       .then((fee) => {
@@ -181,6 +181,42 @@ contract('Descro', function (accounts) {
       .then((balance) => {
         const amount = Number(weiToEther(balance))
         assert.isAtLeast(amount, 0.0002, "Contract must have balance")
+      })
+  })
+
+  it('should change min fee by creator', () => {
+    const MIN_FEE = 0.01;
+
+    return Descro.deployed()
+      .then((instance) => { descro = instance })
+      .then(() => descro.setMinFee.sendTransaction(etherToWei(MIN_FEE), { from: accounts[0] }))
+      .then(() => descro.minFee.call())
+      .then((fee) => {
+        assert.equal(Number(weiToEther(fee)), MIN_FEE, "Fee calculation by fixed min ether");
+      })
+  })
+
+  it('should change max fee by creator', () => {
+    const MAX_FEE = 5;
+
+    return Descro.deployed()
+      .then((instance) => { descro = instance })
+      .then(() => descro.setMaxFee.sendTransaction(etherToWei(MAX_FEE), { from: accounts[0] }))
+      .then(() => descro.maxFee.call())
+      .then((fee) => {
+        assert.equal(Number(weiToEther(fee)), MAX_FEE, "Fee calculation by fixed min ether");
+      })
+  })
+
+  it('should change feeRate by creator', () => {
+    const FEE_RATE = 100;
+
+    return Descro.deployed()
+      .then((instance) => { descro = instance })
+      .then(() => descro.setFeeRate.sendTransaction(etherToWei(FEE_RATE), { from: accounts[0] }))
+      .then(() => descro.feeRate.call())
+      .then((fee) => {
+        assert.equal(Number(weiToEther(fee)), FEE_RATE, "Fee calculation by fixed min ether");
       })
   })
 })

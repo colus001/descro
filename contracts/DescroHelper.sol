@@ -2,9 +2,9 @@ pragma solidity ^0.4.23;
 
 import "./Math.sol";
 import "./SafeMath.sol";
-import "./Ownable.sol";
+import "./DescroFee.sol";
 
-contract DescroHelper is Ownable {
+contract DescroHelper is DescroFee {
   using SafeMath for uint256;
 
   uint8 constant CREATED = 0;
@@ -14,10 +14,6 @@ contract DescroHelper is Ownable {
   uint8 constant CANCELLED = 4;
   uint8 constant COMPLETED = 5;
   uint8 constant REFUNDED = 6;
-
-  uint public feeRate = 1000; // 1/1000
-  uint public minFee = 0.0001 ether;
-  uint public maxFee = 1 ether;
 
   event NewEscrow(address buyer, address seller, uint escrowId, uint balance);
 
@@ -70,23 +66,6 @@ contract DescroHelper is Ownable {
     Escrow memory escrow = escrows[_id];
     require(escrow.balance > 0);
     _;
-  }
-
-  function setMinFee(uint _minFee) external onlyOwner {
-    minFee = _minFee;
-  }
-
-  function setFeeRate(uint _feeRate) external onlyOwner {
-    feeRate = _feeRate;
-  }
-
-  function setMaxFee(uint _maxFee) external onlyOwner {
-    maxFee = _maxFee;
-  }
-
-  function calculateFee(uint _balance) public view returns (uint) {
-    uint ratioFee = _balance.div(feeRate);
-    return Math.min(maxFee, Math.max(ratioFee, minFee));
   }
 
   function getBalance() external view onlyOwner returns (uint) {
