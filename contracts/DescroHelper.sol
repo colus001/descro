@@ -90,7 +90,7 @@ contract DescroHelper is Ownable {
   }
 
   function collect() external onlyOwner {
-    msg.sender.transfer(address(this).balance);
+    owner.transfer(address(this).balance);
   }
 
   function _addNewEscrow(address _buyer, address _seller, uint _balance, uint8 _status) internal returns (uint) {

@@ -43,14 +43,14 @@ contract Descro is DescroHelper {
     uint amount = escrow.balance.sub(calculateFee(escrow.balance));
     escrow.balance = 0;
     escrow.status = COMPLETED;
-    msg.sender.transfer(amount);
+    escrow.seller.transfer(amount);
   }
 
   function refund(uint _id) external onlyBuyer(_id) requireBalance(_id) onlyStatus(_id, CANCELLED) {
     Escrow storage escrow = escrows[_id];
     escrow.balance = 0;
     escrow.status = REFUNDED;
-    msg.sender.transfer(escrow.balance);
+    escrow.buyer.transfer(escrow.balance);
   }
 
   function getBalanceByEscrowId(uint _id) external view returns (uint) {
