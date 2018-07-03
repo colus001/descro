@@ -53,19 +53,18 @@ contract Descro is Business, Escrows {
 
   function withdraw(uint _id) external onlySeller(_id) requireBalance(_id) onlyWithdrawable(_id) {
     Escrow storage escrow = escrows[_id];
-    uint amount = escrow.balance.sub(calculateFee(escrow.balance));
+    escrow.seller.transfer(escrow.balance.sub(calculateFee(escrow.balance)));
     escrow.balance = 0;
     escrow.status = COMPLETED;
-    escrow.seller.transfer(amount);
 
     logEscrow(_id, escrow);
   }
 
   function refund(uint _id) external onlyBuyer(_id) requireBalance(_id) onlyStatus(_id, CANCELLED) {
     Escrow storage escrow = escrows[_id];
+    escrow.buyer.transfer(escrow.balance);
     escrow.balance = 0;
     escrow.status = REFUNDED;
-    escrow.buyer.transfer(escrow.balance);
 
     logEscrow(_id, escrow);
   }

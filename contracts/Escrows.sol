@@ -73,7 +73,7 @@ contract Escrows is Pausible {
 
   modifier onlyWithdrawable(uint _id) {
     Escrow memory escrow = escrows[_id];
-    require(escrow.status == APPROVED || escrow.createdAt + 14 days > now);
+    require(escrow.createdAt + 14 days > now || escrow.status == APPROVED);
     _;
   }
 

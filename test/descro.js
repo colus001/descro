@@ -21,7 +21,7 @@ contract('Descro', function (accounts) {
       .then(() => descro.getEscrowsByBuyer.call(buyer))
       .then((escrowIds) => {
         assert.equal(escrowIds.length, 2, 'Escrow has not been created')
-        return descro.getBalanceByEscrowId.call(escrowIds[0])
+        return descro.getBalanceByEscrowId.call(escrowIds[escrowIds.length - 1])
       })
       .then((balance) => {
         assert.equal(balance.toNumber(), 0, 'Balance is defined properly');
@@ -42,7 +42,7 @@ contract('Descro', function (accounts) {
       })
       .then((escrowIds) => {
         assert.equal(escrowIds.length, 1, 'Escrow has not been created')
-        return descro.getBalanceByEscrowId.call(escrowIds[0])
+        return descro.getBalanceByEscrowId.call(escrowIds[escrowIds.length - 1])
       })
       .then((balance) => {
         const eth = weiToEther(balance);
@@ -66,7 +66,7 @@ contract('Descro', function (accounts) {
       .then(() => descro.getEscrowsByBuyer.call(buyer))
       .then((escrowIds) => {
         assert.equal(escrowIds.length, 1, 'Escrow has not been created')
-        escrowId = escrowIds[0]
+        escrowId = escrowIds[escrowIds.length - 1]
 
         return getStatus(escrowId)()
       })
@@ -128,7 +128,7 @@ contract('Descro', function (accounts) {
       .then(() => descro.getEscrowsByBuyer.call(buyer))
       .then((escrowIds) => {
         assert.equal(escrowIds.length, 1, 'Escrow has not been created')
-        escrowId = escrowIds[0]
+        escrowId = escrowIds[escrowIds.length - 1]
         return descro.getBalanceByEscrowId.call(escrowId);
       })
       .then((balance) => {
@@ -155,6 +155,75 @@ contract('Descro', function (accounts) {
       })
       .then((status) => {
         assert.equal(status, STATUS.COMPLETED, 'Escrow has not been approved properly')
+      })
+  })
+
+  it('should cancel escrow before desposit', () => {
+    const buyer = accounts[7];
+    const seller = accounts[8];
+    let escrowId;
+
+    const getStatus = (id) => () => descro.escrows.call(id)
+      .then((escrow) => escrow[escrow.length - 1].toNumber())
+
+    return Descro.deployed()
+      .then((instance) => { descro = instance })
+      .then(() => descro.createNewEscrow.sendTransaction(buyer, seller, {
+        from: buyer,
+      }))
+      .then(() => descro.getEscrowsByBuyer.call(buyer))
+      .then((escrowIds) => {
+        assert.isAtLeast(escrowIds.length, 1, 'Escrow has not been created')
+        escrowId = escrowIds[escrowIds.length - 1]
+
+        return descro.cancel
+          .sendTransaction(escrowId, { from: buyer })
+          .then(getStatus(escrowId));
+      })
+      .then((status) => {
+        assert.equal(status, STATUS.CANCELLED, 'Escrow has not been cancelled properly')
+      })
+  })
+
+  it('should refund if buyer cancel escrow', () => {
+    const TEST_AMOUNT = 0.5;
+
+    const buyer = accounts[7];
+    const seller = accounts[8];
+    let escrowId;
+
+    const getStatus = (id) => () => descro.escrows.call(id)
+      .then((escrow) => escrow[escrow.length - 1].toNumber())
+
+    return Descro.deployed()
+      .then((instance) => { descro = instance })
+      .then(() => descro.depositNewEscrow.sendTransaction(seller, {
+        from: buyer,
+        value: etherToWei(TEST_AMOUNT),
+      }))
+      .then(() => descro.getEscrowsByBuyer.call(buyer))
+      .then((escrowIds) => {
+        assert.isAtLeast(escrowIds.length, 1, 'Escrow has not been created')
+        escrowId = escrowIds[escrowIds.length - 1]
+
+        return descro.cancel
+          .sendTransaction(escrowId, { from: buyer })
+          .then(getStatus(escrowId));
+      })
+      .then((status) => {
+        assert.equal(status, STATUS.CANCELLED, 'Escrow has not been cancelled properly')
+
+        return descro.refund
+          .sendTransaction(escrowId, { from : buyer })
+          .then(getStatus(escrowId))
+      })
+      .then((status) => {
+        assert.equal(status, STATUS.REFUNDED, 'Escrow has not been refunded properly')
+
+        return descro.getBalanceByEscrowId.call(escrowId);
+      })
+      .then((balance) => {
+        assert.equal(weiToEther(balance), 0, 'Balance should be empty(0)')
       })
   })
 
