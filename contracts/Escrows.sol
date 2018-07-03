@@ -76,21 +76,10 @@ contract Escrows is Pausible {
   }
 
   /* Creator */
-  function _addNewEscrow(address _buyer, address _seller, uint _balance, uint8 _status) private returns (uint) {
+  function _addNewEscrow(address _buyer, address _seller, uint _balance, uint8 _status) internal returns (uint) {
     uint id = escrows.push(Escrow(now, _buyer, _seller, _balance, _status));
     escrowCountByBuyer[_buyer] = escrowCountByBuyer[_buyer].add(1);
     escrowCountBySeller[_seller] = escrowCountBySeller[_seller].add(1);
     return id;
-  }
-
-  function createNewEscrow(address _buyer, address _seller) external onlyInService onlyValidAddress(_buyer) onlyValidAddress(_seller) {
-    _addNewEscrow(_buyer, _seller, 0, CREATED);
-  }
-
-  function createNewEscrowWithDeposit(address _seller) external payable onlyInService onlyValidAddress(_seller) {
-    uint8 _status = DEPOSITED;
-    uint id = _addNewEscrow(msg.sender, _seller, msg.value, _status);
-
-    emit LogEscrow(id, msg.sender, _seller, msg.value, _status);
   }
 }

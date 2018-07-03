@@ -5,8 +5,23 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "./Business.sol";
 import "./Escrows.sol";
 
+/**
+ * @title Descro
+ * @dev Mostly public funciton definition related to escrow
+ */
 contract Descro is Business, Escrows {
   using SafeMath for uint256;
+
+  function createNewEscrow(address _buyer, address _seller) external onlyInService onlyValidAddress(_buyer) onlyValidAddress(_seller) {
+    _addNewEscrow(_buyer, _seller, 0, CREATED);
+  }
+
+  function depositNewEscrow(address _seller) external payable onlyInService onlyValidAddress(_seller) {
+    uint8 _status = DEPOSITED;
+    uint id = _addNewEscrow(msg.sender, _seller, msg.value, _status);
+
+    emit LogEscrow(id, msg.sender, _seller, msg.value, _status);
+  }
 
   function deposit(uint _id) external payable moreThanFee {
     Escrow storage escrow = escrows[_id];
@@ -16,7 +31,7 @@ contract Descro is Business, Escrows {
     logEscrow(_id, escrow);
   }
 
-  function sendProduct(uint _id) external onlySeller(_id) onlyStatus(_id, DEPOSITED) {
+  function sendProduct(uint _id) external onlySeller(_id) requireBalance(_id) onlyStatus(_id, DEPOSITED) {
     escrows[_id].status = PRODUCT_SENT;
 
     logEscrow(_id, escrows[_id]);

@@ -35,7 +35,7 @@ contract('Descro', function (accounts) {
     return Descro.deployed()
       .then((instance) => { descro = instance })
       .then(() => {
-        return descro.createNewEscrowWithDeposit.sendTransaction(buyer, { from: seller, value: etherToWei(1) })
+        return descro.depositNewEscrow.sendTransaction(buyer, { from: seller, value: etherToWei(1) })
       })
       .then(() => {
         return descro.getEscrowsByBuyer.call(seller)
@@ -121,7 +121,7 @@ contract('Descro', function (accounts) {
 
     return Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.createNewEscrowWithDeposit.sendTransaction(seller, {
+      .then(() => descro.depositNewEscrow.sendTransaction(seller, {
         from: buyer,
         value: etherToWei(TEST_AMOUNT),
       }))
@@ -236,5 +236,8 @@ contract('Descro', function (accounts) {
           .then(() => assert.equal(true, false, "Should crash send transaction in paused status"))
           .catch((error) => assert.equal(true, true))
       })
+      .then(() => descro.unpause.sendTransaction({ from: owner }))
+      .then(() => descro.isPaused.call())
+      .then((isPaused) => assert.equal(isPaused, false, "Contract is paused"))
   })
 })
