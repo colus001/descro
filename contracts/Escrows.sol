@@ -34,9 +34,17 @@ contract Escrows is Pausible {
 
   /* Loggers */
   event LogEscrow(uint escrowId, address buyer, address seller, uint balance, uint8 status);
+  event LogDepositEscrow(uint escrowId, address buyer, address seller, uint balance);
+  event LogCompleteEscrow(uint escrowId, address buyer, address seller, uint balance);
 
   function logEscrow(uint _id, Escrow _escrow) internal {
     emit LogEscrow(_id, _escrow.buyer, _escrow.seller, _escrow.balance, _escrow.status);
+
+    if (_escrow.status == DEPOSITED) {
+      emit LogDepositEscrow(_id, _escrow.buyer, _escrow.seller, _escrow.balance);
+    } else if (_escrow.status == COMPLETED) {
+      emit LogCompleteEscrow(_id, _escrow.buyer, _escrow.seller, _escrow.balance);
+    }
   }
 
   /* Modifiers */
@@ -60,6 +68,12 @@ contract Escrows is Pausible {
   modifier onlySeller(uint _id) {
     Escrow memory escrow = escrows[_id];
     require(msg.sender == escrow.seller);
+    _;
+  }
+
+  modifier onlyWithdrawable(uint _id) {
+    Escrow memory escrow = escrows[_id];
+    require(escrow.status == APPROVED || escrow.createdAt + 14 days > now);
     _;
   }
 
