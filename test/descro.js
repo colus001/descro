@@ -10,6 +10,26 @@ contract('Descro', function (accounts) {
   const owner = accounts[0];
   let descro;
 
+  it('should make create function below 200,000', () => {
+    const buyer = accounts[1];
+    const seller = accounts[2];
+
+    let createNewEscrowGas;
+    let depositNewEscrowGas;
+
+    Descro.deployed()
+      .then((instance) => { descro = instance })
+      .then(() => descro.createNewEscrow.estimateGas(buyer, seller, { from: buyer }))
+      .then((gas) => { createNewEscrowGas = gas })
+      .then(() => descro.depositNewEscrow.estimateGas(seller, { from: buyer, value: etherToWei(1) }))
+      .then((gas) => { depositNewEscrowGas = gas })
+      .then(() => {
+        // console.log('GasPrices:', { createNewEscrowGas, depositNewEscrowGas })
+        assert.isAtMost(createNewEscrowGas, 200000, "createNewEscrowGas is over 200,000")
+        assert.isAtMost(depositNewEscrowGas, 200000, "depositNewEscrowGas is over 200,000")
+      })
+  })
+
   it('should create new escrow by buyer', function() {
     const buyer = accounts[3];
     const seller = accounts[4];

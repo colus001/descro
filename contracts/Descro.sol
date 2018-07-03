@@ -13,10 +13,12 @@ contract Descro is Business, Escrows {
   using SafeMath for uint256;
 
   function createNewEscrow(address _buyer, address _seller) external onlyInService onlyValidAddress(_buyer) onlyValidAddress(_seller) {
+    require(_buyer != _seller);
     _addNewEscrow(_buyer, _seller, 0, CREATED);
   }
 
   function depositNewEscrow(address _seller) external payable onlyInService onlyValidAddress(_seller) {
+    require(msg.sender != _seller);
     uint8 _status = DEPOSITED;
     uint id = _addNewEscrow(msg.sender, _seller, msg.value, _status);
 
