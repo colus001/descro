@@ -7,6 +7,12 @@ import "./Pausible.sol";
 contract Descro is DescroHelper, Pausible {
   using SafeMath for uint256;
 
+  function _addNewEscrow(address _buyer, address _seller, uint _balance, uint8 _status) internal returns (uint) {
+    uint id = escrows.push(Escrow(now, _buyer, _seller, _balance, _status));
+    escrowCountByOwner[msg.sender] = escrowCountByOwner[msg.sender].add(1);
+    return id;
+  }
+
   function createNewEscrow(address _buyer, address _seller) external onlyInService onlyValidAddress(_buyer) onlyValidAddress(_seller) {
     _addNewEscrow(_buyer, _seller, 0, CREATED);
   }
