@@ -1,8 +1,8 @@
 pragma solidity ^0.4.23;
 
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "./Math.sol";
-import "./SafeMath.sol";
-import "./Ownable.sol";
 
 contract DescroFee is Ownable {
   using SafeMath for uint256;

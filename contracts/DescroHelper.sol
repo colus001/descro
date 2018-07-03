@@ -1,7 +1,8 @@
 pragma solidity ^0.4.23;
 
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 import "./Math.sol";
-import "./SafeMath.sol";
 import "./DescroFee.sol";
 
 contract DescroHelper is DescroFee {
@@ -27,7 +28,14 @@ contract DescroHelper is DescroFee {
 
   Escrow[] public escrows;
 
+  bool public inService = true;
+
   mapping (address => uint) escrowCountByOwner;
+
+  modifier onlyInService() {
+    require(inService);
+    _;
+  }
 
   modifier onlyValidAddress(address _address) {
     require(_address != 0x0);

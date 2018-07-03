@@ -7,6 +7,7 @@ const weiToEther = (wei) => web3.fromWei((typeof wei === 'number') ? wei : wei.t
 const etherToWei = (ether) => web3.toWei((typeof ether === 'number') ? ether : ether.toNumber())
 
 contract('Descro', function (accounts) {
+  const owner = accounts[0];
   let descro;
 
   it('should create new escrow by buyer', function() {
@@ -177,7 +178,7 @@ contract('Descro', function (accounts) {
   it('should have balance in contract address collected by escrows', () => {
     return Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.getBalance.call({ from: accounts[0] }))
+      .then(() => descro.getBalance.call({ from: owner }))
       .then((balance) => {
         const amount = Number(weiToEther(balance))
         assert.isAtLeast(amount, 0.0002, "Contract must have balance")
@@ -189,7 +190,7 @@ contract('Descro', function (accounts) {
 
     return Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.setMinFee.sendTransaction(etherToWei(MIN_FEE), { from: accounts[0] }))
+      .then(() => descro.setMinFee.sendTransaction(etherToWei(MIN_FEE), { from: owner }))
       .then(() => descro.minFee.call())
       .then((fee) => {
         assert.equal(Number(weiToEther(fee)), MIN_FEE, "Fee calculation by fixed min ether");
@@ -201,7 +202,7 @@ contract('Descro', function (accounts) {
 
     return Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.setMaxFee.sendTransaction(etherToWei(MAX_FEE), { from: accounts[0] }))
+      .then(() => descro.setMaxFee.sendTransaction(etherToWei(MAX_FEE), { from: owner }))
       .then(() => descro.maxFee.call())
       .then((fee) => {
         assert.equal(Number(weiToEther(fee)), MAX_FEE, "Fee calculation by fixed min ether");
@@ -213,10 +214,27 @@ contract('Descro', function (accounts) {
 
     return Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.setFeeRate.sendTransaction(etherToWei(FEE_RATE), { from: accounts[0] }))
+      .then(() => descro.setFeeRate.sendTransaction(etherToWei(FEE_RATE), { from: owner }))
       .then(() => descro.feeRate.call())
       .then((fee) => {
         assert.equal(Number(weiToEther(fee)), FEE_RATE, "Fee calculation by fixed min ether");
+      })
+  })
+
+  it('should not create contract if contract is paused', () => {
+    const buyer = accounts[7];
+    const seller = accounts[8];
+
+    return Descro.deployed()
+      .then((instance) => { descro = instance })
+      .then(() => descro.pause.sendTransaction({ from: owner }))
+      .then(() => descro.isPaused.call())
+      .then((isPaused) => assert.equal(isPaused, true, "Contract is not paused"))
+      .then(() => {
+        return descro.createNewEscrow
+          .sendTransaction(buyer, seller, { from: buyer })
+          .then(() => assert.equal(true, false, "Should crash send transaction in paused status"))
+          .catch((error) => assert.equal(true, true))
       })
   })
 })

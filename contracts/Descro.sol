@@ -1,16 +1,17 @@
 pragma solidity ^0.4.23;
 
-import "./SafeMath.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "./DescroHelper.sol";
+import "./Pausible.sol";
 
-contract Descro is DescroHelper {
+contract Descro is DescroHelper, Pausible {
   using SafeMath for uint256;
 
-  function createNewEscrow(address _buyer, address _seller) external onlyValidAddress(_buyer) onlyValidAddress(_seller) {
+  function createNewEscrow(address _buyer, address _seller) external onlyInService onlyValidAddress(_buyer) onlyValidAddress(_seller) {
     _addNewEscrow(_buyer, _seller, 0, CREATED);
   }
 
-  function createNewEscrowWithDeposit(address _seller) external payable onlyValidAddress(_seller) {
+  function createNewEscrowWithDeposit(address _seller) external payable onlyInService onlyValidAddress(_seller) {
     uint id = _addNewEscrow(msg.sender, _seller, msg.value, DEPOSITED);
 
     emit NewEscrow(msg.sender, _seller, id, msg.value);
