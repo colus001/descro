@@ -227,7 +227,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 39,
-        "sourceUnit": 1004,
+        "sourceUnit": 1081,
         "src": "26:59:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -238,7 +238,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 39,
-        "sourceUnit": 1090,
+        "sourceUnit": 1167,
         "src": "86:63:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -249,7 +249,7 @@
         "id": 4,
         "nodeType": "ImportDirective",
         "scope": 39,
-        "sourceUnit": 823,
+        "sourceUnit": 900,
         "src": "151:19:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -263,10 +263,10 @@
               "id": 5,
               "name": "Fee",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 822,
+              "referencedDeclaration": 899,
               "src": "193:3:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Fee_$822",
+                "typeIdentifier": "t_contract$_Fee_$899",
                 "typeString": "contract Fee"
               }
             },
@@ -276,8 +276,8 @@
           }
         ],
         "contractDependencies": [
-          822,
-          1089
+          899,
+          1166
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -285,8 +285,8 @@
         "id": 38,
         "linearizedBaseContracts": [
           38,
-          822,
-          1089
+          899,
+          1166
         ],
         "name": "Business",
         "nodeType": "ContractDefinition",
@@ -298,10 +298,10 @@
               "id": 7,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1003,
+              "referencedDeclaration": 1080,
               "src": "207:8:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1003",
+                "typeIdentifier": "t_contract$_SafeMath_$1080",
                 "typeString": "library SafeMath"
               }
             },
@@ -336,7 +336,7 @@
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1125,
+                          "referencedDeclaration": 1202,
                           "src": "331:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_Business_$38",
@@ -414,7 +414,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "285:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -494,7 +494,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1125,
+                              "referencedDeclaration": 1202,
                               "src": "420:4:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Business_$38",
@@ -564,7 +564,7 @@
                         "name": "owner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1007,
+                        "referencedDeclaration": 1084,
                         "src": "397:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -620,7 +620,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "381:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -686,7 +686,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 39,
-        "sourceUnit": 1004,
+        "sourceUnit": 1081,
         "src": "26:59:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -697,7 +697,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 39,
-        "sourceUnit": 1090,
+        "sourceUnit": 1167,
         "src": "86:63:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -708,7 +708,7 @@
         "id": 4,
         "nodeType": "ImportDirective",
         "scope": 39,
-        "sourceUnit": 823,
+        "sourceUnit": 900,
         "src": "151:19:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -722,10 +722,10 @@
               "id": 5,
               "name": "Fee",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 822,
+              "referencedDeclaration": 899,
               "src": "193:3:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Fee_$822",
+                "typeIdentifier": "t_contract$_Fee_$899",
                 "typeString": "contract Fee"
               }
             },
@@ -735,8 +735,8 @@
           }
         ],
         "contractDependencies": [
-          822,
-          1089
+          899,
+          1166
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -744,8 +744,8 @@
         "id": 38,
         "linearizedBaseContracts": [
           38,
-          822,
-          1089
+          899,
+          1166
         ],
         "name": "Business",
         "nodeType": "ContractDefinition",
@@ -757,10 +757,10 @@
               "id": 7,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1003,
+              "referencedDeclaration": 1080,
               "src": "207:8:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1003",
+                "typeIdentifier": "t_contract$_SafeMath_$1080",
                 "typeString": "library SafeMath"
               }
             },
@@ -795,7 +795,7 @@
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1125,
+                          "referencedDeclaration": 1202,
                           "src": "331:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_Business_$38",
@@ -873,7 +873,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "285:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -953,7 +953,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1125,
+                              "referencedDeclaration": 1202,
                               "src": "420:4:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Business_$38",
@@ -1023,7 +1023,7 @@
                         "name": "owner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1007,
+                        "referencedDeclaration": 1084,
                         "src": "397:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1079,7 +1079,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "381:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1124,5 +1124,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-03T12:36:10.041Z"
+  "updatedAt": "2018-07-04T14:32:18.033Z"
 }

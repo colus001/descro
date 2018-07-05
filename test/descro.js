@@ -24,7 +24,7 @@ contract('Descro', function (accounts) {
       .then(() => descro.depositNewEscrow.estimateGas(seller, { from: buyer, value: etherToWei(1) }))
       .then((gas) => { depositNewEscrowGas = gas })
       .then(() => {
-        // console.log('GasPrices:', { createNewEscrowGas, depositNewEscrowGas })
+        console.log('GasPrices:', { createNewEscrowGas, depositNewEscrowGas })
         assert.isAtMost(createNewEscrowGas, 200000, "createNewEscrowGas is over 200,000")
         assert.isAtMost(depositNewEscrowGas, 200000, "depositNewEscrowGas is over 200,000")
       })

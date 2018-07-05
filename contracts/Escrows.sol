@@ -90,10 +90,17 @@ contract Escrows is Pausible {
   }
 
   /* Creator */
-  function _addNewEscrow(address _buyer, address _seller, uint _balance, uint8 _status) internal returns (uint) {
+  function _addNewEscrow(
+    address _buyer,
+    address _seller,
+    uint _balance,
+    uint8 _status
+  ) internal {
+    require(_buyer != _seller);
     uint id = escrows.push(Escrow(now, _buyer, _seller, _balance, _status));
     escrowCountByBuyer[_buyer] = escrowCountByBuyer[_buyer].add(1);
     escrowCountBySeller[_seller] = escrowCountBySeller[_seller].add(1);
-    return id;
+
+    emit LogEscrow(id, _buyer, _seller, _balance, _status);
   }
 }

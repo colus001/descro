@@ -181,14 +181,14 @@
     "absolutePath": "/Users/KimSeokjun/Development/descro/contracts/Fee.sol",
     "exportedSymbols": {
       "Fee": [
-        822
+        899
       ]
     },
-    "id": 823,
+    "id": 900,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 714,
+        "id": 791,
         "literals": [
           "solidity",
           "^",
@@ -201,10 +201,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
         "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
-        "id": 715,
+        "id": 792,
         "nodeType": "ImportDirective",
-        "scope": 823,
-        "sourceUnit": 1004,
+        "scope": 900,
+        "sourceUnit": 1081,
         "src": "26:59:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -212,10 +212,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 716,
+        "id": 793,
         "nodeType": "ImportDirective",
-        "scope": 823,
-        "sourceUnit": 1090,
+        "scope": 900,
+        "sourceUnit": 1167,
         "src": "86:63:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -223,10 +223,10 @@
       {
         "absolutePath": "/Users/KimSeokjun/Development/descro/contracts/Math.sol",
         "file": "./Math.sol",
-        "id": 717,
+        "id": 794,
         "nodeType": "ImportDirective",
-        "scope": 823,
-        "sourceUnit": 860,
+        "scope": 900,
+        "sourceUnit": 937,
         "src": "151:20:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -237,53 +237,53 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 718,
+              "id": 795,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1089,
+              "referencedDeclaration": 1166,
               "src": "189:7:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1089",
+                "typeIdentifier": "t_contract$_Ownable_$1166",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 719,
+            "id": 796,
             "nodeType": "InheritanceSpecifier",
             "src": "189:7:3"
           }
         ],
         "contractDependencies": [
-          1089
+          1166
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 822,
+        "id": 899,
         "linearizedBaseContracts": [
-          822,
-          1089
+          899,
+          1166
         ],
         "name": "Fee",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 722,
+            "id": 799,
             "libraryName": {
               "contractScope": null,
-              "id": 720,
+              "id": 797,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1003,
+              "referencedDeclaration": 1080,
               "src": "207:8:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1003",
+                "typeIdentifier": "t_contract$_SafeMath_$1080",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "201:27:3",
             "typeName": {
-              "id": 721,
+              "id": 798,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "220:7:3",
@@ -295,10 +295,10 @@
           },
           {
             "constant": false,
-            "id": 725,
+            "id": 802,
             "name": "feeRate",
             "nodeType": "VariableDeclaration",
-            "scope": 822,
+            "scope": 899,
             "src": "232:26:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -307,7 +307,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 723,
+              "id": 800,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "232:4:3",
@@ -319,7 +319,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "31303030",
-              "id": 724,
+              "id": 801,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -338,10 +338,10 @@
           },
           {
             "constant": false,
-            "id": 728,
+            "id": 805,
             "name": "minFee",
             "nodeType": "VariableDeclaration",
-            "scope": 822,
+            "scope": 899,
             "src": "272:33:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -350,7 +350,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 726,
+              "id": 803,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "272:4:3",
@@ -362,7 +362,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "302e30303031",
-              "id": 727,
+              "id": 804,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -381,10 +381,10 @@
           },
           {
             "constant": false,
-            "id": 731,
+            "id": 808,
             "name": "maxFee",
             "nodeType": "VariableDeclaration",
-            "scope": 822,
+            "scope": 899,
             "src": "309:28:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -393,7 +393,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 729,
+              "id": 806,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "309:4:3",
@@ -405,7 +405,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "31",
-              "id": 730,
+              "id": 807,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -424,7 +424,7 @@
           },
           {
             "body": {
-              "id": 741,
+              "id": 818,
               "nodeType": "Block",
               "src": "383:45:3",
               "statements": [
@@ -438,7 +438,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 737,
+                        "id": 814,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -447,18 +447,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 734,
+                            "id": 811,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1104,
+                            "referencedDeclaration": 1181,
                             "src": "397:3:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 735,
+                          "id": 812,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -476,11 +476,11 @@
                         "operator": ">",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 736,
+                          "id": 813,
                           "name": "minFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 728,
+                          "referencedDeclaration": 805,
                           "src": "409:6:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -501,21 +501,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 733,
+                      "id": 810,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1107,
-                        1108
+                        1184,
+                        1185
                       ],
-                      "referencedDeclaration": 1107,
+                      "referencedDeclaration": 1184,
                       "src": "389:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 738,
+                    "id": 815,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -529,23 +529,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 739,
+                  "id": 816,
                   "nodeType": "ExpressionStatement",
                   "src": "389:27:3"
                 },
                 {
-                  "id": 740,
+                  "id": 817,
                   "nodeType": "PlaceholderStatement",
                   "src": "422:1:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 742,
+            "id": 819,
             "name": "moreThanFee",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 732,
+              "id": 809,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "380:2:3"
@@ -555,7 +555,7 @@
           },
           {
             "body": {
-              "id": 759,
+              "id": 836,
               "nodeType": "Block",
               "src": "498:56:3",
               "statements": [
@@ -569,18 +569,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 752,
+                        "id": 829,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 750,
+                          "id": 827,
                           "name": "_feeRate",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 744,
+                          "referencedDeclaration": 821,
                           "src": "512:8:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -592,7 +592,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 751,
+                          "id": 828,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -621,21 +621,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 749,
+                      "id": 826,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1107,
-                        1108
+                        1184,
+                        1185
                       ],
-                      "referencedDeclaration": 1107,
+                      "referencedDeclaration": 1184,
                       "src": "504:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 753,
+                    "id": 830,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -649,25 +649,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 754,
+                  "id": 831,
                   "nodeType": "ExpressionStatement",
                   "src": "504:21:3"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 757,
+                    "id": 834,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 755,
+                      "id": 832,
                       "name": "feeRate",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 725,
+                      "referencedDeclaration": 802,
                       "src": "531:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -678,11 +678,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 756,
+                      "id": 833,
                       "name": "_feeRate",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 744,
+                      "referencedDeclaration": 821,
                       "src": "541:8:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -695,28 +695,28 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 758,
+                  "id": 835,
                   "nodeType": "ExpressionStatement",
                   "src": "531:18:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 760,
+            "id": 837,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 747,
+                "id": 824,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 746,
+                  "id": 823,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "488:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -730,15 +730,15 @@
             "name": "setFeeRate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 745,
+              "id": 822,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 744,
+                  "id": 821,
                   "name": "_feeRate",
                   "nodeType": "VariableDeclaration",
-                  "scope": 760,
+                  "scope": 837,
                   "src": "464:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -747,7 +747,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 743,
+                    "id": 820,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "464:4:3",
@@ -764,12 +764,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 748,
+              "id": 825,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "498:0:3"
             },
-            "scope": 822,
+            "scope": 899,
             "src": "444:110:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -777,7 +777,7 @@
           },
           {
             "body": {
-              "id": 777,
+              "id": 854,
               "nodeType": "Block",
               "src": "610:58:3",
               "statements": [
@@ -791,18 +791,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 770,
+                        "id": 847,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 768,
+                          "id": 845,
                           "name": "_minFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 762,
+                          "referencedDeclaration": 839,
                           "src": "624:7:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -813,11 +813,11 @@
                         "operator": "<",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 769,
+                          "id": 846,
                           "name": "maxFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 731,
+                          "referencedDeclaration": 808,
                           "src": "634:6:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -838,21 +838,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 767,
+                      "id": 844,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1107,
-                        1108
+                        1184,
+                        1185
                       ],
-                      "referencedDeclaration": 1107,
+                      "referencedDeclaration": 1184,
                       "src": "616:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 771,
+                    "id": 848,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -866,25 +866,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 772,
+                  "id": 849,
                   "nodeType": "ExpressionStatement",
                   "src": "616:25:3"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 775,
+                    "id": 852,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 773,
+                      "id": 850,
                       "name": "minFee",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 728,
+                      "referencedDeclaration": 805,
                       "src": "647:6:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -895,11 +895,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 774,
+                      "id": 851,
                       "name": "_minFee",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 762,
+                      "referencedDeclaration": 839,
                       "src": "656:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -912,28 +912,28 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 776,
+                  "id": 853,
                   "nodeType": "ExpressionStatement",
                   "src": "647:16:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 778,
+            "id": 855,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 765,
+                "id": 842,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 764,
+                  "id": 841,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "600:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -947,15 +947,15 @@
             "name": "setMinFee",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 763,
+              "id": 840,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 762,
+                  "id": 839,
                   "name": "_minFee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 778,
+                  "scope": 855,
                   "src": "577:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -964,7 +964,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 761,
+                    "id": 838,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "577:4:3",
@@ -981,12 +981,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 766,
+              "id": 843,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "610:0:3"
             },
-            "scope": 822,
+            "scope": 899,
             "src": "558:110:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -994,7 +994,7 @@
           },
           {
             "body": {
-              "id": 795,
+              "id": 872,
               "nodeType": "Block",
               "src": "724:58:3",
               "statements": [
@@ -1008,18 +1008,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 788,
+                        "id": 865,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 786,
+                          "id": 863,
                           "name": "_maxFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 780,
+                          "referencedDeclaration": 857,
                           "src": "738:7:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1030,11 +1030,11 @@
                         "operator": ">",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 787,
+                          "id": 864,
                           "name": "minFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 728,
+                          "referencedDeclaration": 805,
                           "src": "748:6:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1055,21 +1055,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 785,
+                      "id": 862,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1107,
-                        1108
+                        1184,
+                        1185
                       ],
-                      "referencedDeclaration": 1107,
+                      "referencedDeclaration": 1184,
                       "src": "730:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 789,
+                    "id": 866,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1083,25 +1083,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 790,
+                  "id": 867,
                   "nodeType": "ExpressionStatement",
                   "src": "730:25:3"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 793,
+                    "id": 870,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 791,
+                      "id": 868,
                       "name": "maxFee",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 731,
+                      "referencedDeclaration": 808,
                       "src": "761:6:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1112,11 +1112,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 792,
+                      "id": 869,
                       "name": "_maxFee",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 780,
+                      "referencedDeclaration": 857,
                       "src": "770:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1129,28 +1129,28 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 794,
+                  "id": 871,
                   "nodeType": "ExpressionStatement",
                   "src": "761:16:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 796,
+            "id": 873,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 783,
+                "id": 860,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 782,
+                  "id": 859,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "714:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1164,15 +1164,15 @@
             "name": "setMaxFee",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 781,
+              "id": 858,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 780,
+                  "id": 857,
                   "name": "_maxFee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 796,
+                  "scope": 873,
                   "src": "691:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1181,7 +1181,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 779,
+                    "id": 856,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "691:4:3",
@@ -1198,12 +1198,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 784,
+              "id": 861,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "724:0:3"
             },
-            "scope": 822,
+            "scope": 899,
             "src": "672:110:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1211,21 +1211,21 @@
           },
           {
             "body": {
-              "id": 820,
+              "id": 897,
               "nodeType": "Block",
               "src": "850:105:3",
               "statements": [
                 {
                   "assignments": [
-                    804
+                    881
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 804,
+                      "id": 881,
                       "name": "ratioFee",
                       "nodeType": "VariableDeclaration",
-                      "scope": 821,
+                      "scope": 898,
                       "src": "856:13:3",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1234,7 +1234,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 803,
+                        "id": 880,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
                         "src": "856:4:3",
@@ -1247,17 +1247,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 809,
+                  "id": 886,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 807,
+                        "id": 884,
                         "name": "feeRate",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 725,
+                        "referencedDeclaration": 802,
                         "src": "885:7:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1274,32 +1274,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 805,
+                        "id": 882,
                         "name": "_balance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 798,
+                        "referencedDeclaration": 875,
                         "src": "872:8:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         }
                       },
-                      "id": 806,
+                      "id": 883,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "div",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 958,
+                      "referencedDeclaration": 1035,
                       "src": "872:12:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                         "typeString": "function (uint256,uint256) pure returns (uint256)"
                       }
                     },
-                    "id": 808,
+                    "id": 885,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1322,11 +1322,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 812,
+                        "id": 889,
                         "name": "maxFee",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 731,
+                        "referencedDeclaration": 808,
                         "src": "915:6:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1338,11 +1338,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 815,
+                            "id": 892,
                             "name": "ratioFee",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 804,
+                            "referencedDeclaration": 881,
                             "src": "932:8:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1351,11 +1351,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 816,
+                            "id": 893,
                             "name": "minFee",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 728,
+                            "referencedDeclaration": 805,
                             "src": "942:6:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1376,32 +1376,32 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 813,
+                            "id": 890,
                             "name": "Math",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 859,
+                            "referencedDeclaration": 936,
                             "src": "923:4:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_Math_$859_$",
+                              "typeIdentifier": "t_type$_t_contract$_Math_$936_$",
                               "typeString": "type(library Math)"
                             }
                           },
-                          "id": 814,
+                          "id": 891,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "max",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 858,
+                          "referencedDeclaration": 935,
                           "src": "923:8:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                             "typeString": "function (uint256,uint256) pure returns (uint256)"
                           }
                         },
-                        "id": 817,
+                        "id": 894,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1429,32 +1429,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 810,
+                        "id": 887,
                         "name": "Math",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 859,
+                        "referencedDeclaration": 936,
                         "src": "906:4:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_Math_$859_$",
+                          "typeIdentifier": "t_type$_t_contract$_Math_$936_$",
                           "typeString": "type(library Math)"
                         }
                       },
-                      "id": 811,
+                      "id": 888,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "min",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 841,
+                      "referencedDeclaration": 918,
                       "src": "906:8:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (uint256,uint256) pure returns (uint256)"
                       }
                     },
-                    "id": 818,
+                    "id": 895,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1468,15 +1468,15 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 802,
-                  "id": 819,
+                  "functionReturnParameters": 879,
+                  "id": 896,
                   "nodeType": "Return",
                   "src": "899:51:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 821,
+            "id": 898,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1484,15 +1484,15 @@
             "name": "calculateFee",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 799,
+              "id": 876,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 798,
+                  "id": 875,
                   "name": "_balance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 821,
+                  "scope": 898,
                   "src": "808:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1501,7 +1501,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 797,
+                    "id": 874,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "808:4:3",
@@ -1518,15 +1518,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 802,
+              "id": 879,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 801,
+                  "id": 878,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 821,
+                  "scope": 898,
                   "src": "844:4:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1535,7 +1535,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 800,
+                    "id": 877,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "844:4:3",
@@ -1550,14 +1550,14 @@
               ],
               "src": "843:6:3"
             },
-            "scope": 822,
+            "scope": 899,
             "src": "786:169:3",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 823,
+        "scope": 900,
         "src": "173:784:3"
       }
     ],
@@ -1567,14 +1567,14 @@
     "absolutePath": "/Users/KimSeokjun/Development/descro/contracts/Fee.sol",
     "exportedSymbols": {
       "Fee": [
-        822
+        899
       ]
     },
-    "id": 823,
+    "id": 900,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 714,
+        "id": 791,
         "literals": [
           "solidity",
           "^",
@@ -1587,10 +1587,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
         "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
-        "id": 715,
+        "id": 792,
         "nodeType": "ImportDirective",
-        "scope": 823,
-        "sourceUnit": 1004,
+        "scope": 900,
+        "sourceUnit": 1081,
         "src": "26:59:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1598,10 +1598,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 716,
+        "id": 793,
         "nodeType": "ImportDirective",
-        "scope": 823,
-        "sourceUnit": 1090,
+        "scope": 900,
+        "sourceUnit": 1167,
         "src": "86:63:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1609,10 +1609,10 @@
       {
         "absolutePath": "/Users/KimSeokjun/Development/descro/contracts/Math.sol",
         "file": "./Math.sol",
-        "id": 717,
+        "id": 794,
         "nodeType": "ImportDirective",
-        "scope": 823,
-        "sourceUnit": 860,
+        "scope": 900,
+        "sourceUnit": 937,
         "src": "151:20:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1623,53 +1623,53 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 718,
+              "id": 795,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1089,
+              "referencedDeclaration": 1166,
               "src": "189:7:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1089",
+                "typeIdentifier": "t_contract$_Ownable_$1166",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 719,
+            "id": 796,
             "nodeType": "InheritanceSpecifier",
             "src": "189:7:3"
           }
         ],
         "contractDependencies": [
-          1089
+          1166
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 822,
+        "id": 899,
         "linearizedBaseContracts": [
-          822,
-          1089
+          899,
+          1166
         ],
         "name": "Fee",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 722,
+            "id": 799,
             "libraryName": {
               "contractScope": null,
-              "id": 720,
+              "id": 797,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1003,
+              "referencedDeclaration": 1080,
               "src": "207:8:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1003",
+                "typeIdentifier": "t_contract$_SafeMath_$1080",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "201:27:3",
             "typeName": {
-              "id": 721,
+              "id": 798,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "220:7:3",
@@ -1681,10 +1681,10 @@
           },
           {
             "constant": false,
-            "id": 725,
+            "id": 802,
             "name": "feeRate",
             "nodeType": "VariableDeclaration",
-            "scope": 822,
+            "scope": 899,
             "src": "232:26:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1693,7 +1693,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 723,
+              "id": 800,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "232:4:3",
@@ -1705,7 +1705,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "31303030",
-              "id": 724,
+              "id": 801,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1724,10 +1724,10 @@
           },
           {
             "constant": false,
-            "id": 728,
+            "id": 805,
             "name": "minFee",
             "nodeType": "VariableDeclaration",
-            "scope": 822,
+            "scope": 899,
             "src": "272:33:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1736,7 +1736,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 726,
+              "id": 803,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "272:4:3",
@@ -1748,7 +1748,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "302e30303031",
-              "id": 727,
+              "id": 804,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1767,10 +1767,10 @@
           },
           {
             "constant": false,
-            "id": 731,
+            "id": 808,
             "name": "maxFee",
             "nodeType": "VariableDeclaration",
-            "scope": 822,
+            "scope": 899,
             "src": "309:28:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1779,7 +1779,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 729,
+              "id": 806,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "309:4:3",
@@ -1791,7 +1791,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "31",
-              "id": 730,
+              "id": 807,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1810,7 +1810,7 @@
           },
           {
             "body": {
-              "id": 741,
+              "id": 818,
               "nodeType": "Block",
               "src": "383:45:3",
               "statements": [
@@ -1824,7 +1824,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 737,
+                        "id": 814,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1833,18 +1833,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 734,
+                            "id": 811,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1104,
+                            "referencedDeclaration": 1181,
                             "src": "397:3:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 735,
+                          "id": 812,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1862,11 +1862,11 @@
                         "operator": ">",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 736,
+                          "id": 813,
                           "name": "minFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 728,
+                          "referencedDeclaration": 805,
                           "src": "409:6:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1887,21 +1887,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 733,
+                      "id": 810,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1107,
-                        1108
+                        1184,
+                        1185
                       ],
-                      "referencedDeclaration": 1107,
+                      "referencedDeclaration": 1184,
                       "src": "389:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 738,
+                    "id": 815,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1915,23 +1915,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 739,
+                  "id": 816,
                   "nodeType": "ExpressionStatement",
                   "src": "389:27:3"
                 },
                 {
-                  "id": 740,
+                  "id": 817,
                   "nodeType": "PlaceholderStatement",
                   "src": "422:1:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 742,
+            "id": 819,
             "name": "moreThanFee",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 732,
+              "id": 809,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "380:2:3"
@@ -1941,7 +1941,7 @@
           },
           {
             "body": {
-              "id": 759,
+              "id": 836,
               "nodeType": "Block",
               "src": "498:56:3",
               "statements": [
@@ -1955,18 +1955,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 752,
+                        "id": 829,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 750,
+                          "id": 827,
                           "name": "_feeRate",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 744,
+                          "referencedDeclaration": 821,
                           "src": "512:8:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -1978,7 +1978,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 751,
+                          "id": 828,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2007,21 +2007,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 749,
+                      "id": 826,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1107,
-                        1108
+                        1184,
+                        1185
                       ],
-                      "referencedDeclaration": 1107,
+                      "referencedDeclaration": 1184,
                       "src": "504:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 753,
+                    "id": 830,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2035,25 +2035,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 754,
+                  "id": 831,
                   "nodeType": "ExpressionStatement",
                   "src": "504:21:3"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 757,
+                    "id": 834,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 755,
+                      "id": 832,
                       "name": "feeRate",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 725,
+                      "referencedDeclaration": 802,
                       "src": "531:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2064,11 +2064,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 756,
+                      "id": 833,
                       "name": "_feeRate",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 744,
+                      "referencedDeclaration": 821,
                       "src": "541:8:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2081,28 +2081,28 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 758,
+                  "id": 835,
                   "nodeType": "ExpressionStatement",
                   "src": "531:18:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 760,
+            "id": 837,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 747,
+                "id": 824,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 746,
+                  "id": 823,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "488:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2116,15 +2116,15 @@
             "name": "setFeeRate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 745,
+              "id": 822,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 744,
+                  "id": 821,
                   "name": "_feeRate",
                   "nodeType": "VariableDeclaration",
-                  "scope": 760,
+                  "scope": 837,
                   "src": "464:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2133,7 +2133,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 743,
+                    "id": 820,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "464:4:3",
@@ -2150,12 +2150,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 748,
+              "id": 825,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "498:0:3"
             },
-            "scope": 822,
+            "scope": 899,
             "src": "444:110:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2163,7 +2163,7 @@
           },
           {
             "body": {
-              "id": 777,
+              "id": 854,
               "nodeType": "Block",
               "src": "610:58:3",
               "statements": [
@@ -2177,18 +2177,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 770,
+                        "id": 847,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 768,
+                          "id": 845,
                           "name": "_minFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 762,
+                          "referencedDeclaration": 839,
                           "src": "624:7:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2199,11 +2199,11 @@
                         "operator": "<",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 769,
+                          "id": 846,
                           "name": "maxFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 731,
+                          "referencedDeclaration": 808,
                           "src": "634:6:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2224,21 +2224,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 767,
+                      "id": 844,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1107,
-                        1108
+                        1184,
+                        1185
                       ],
-                      "referencedDeclaration": 1107,
+                      "referencedDeclaration": 1184,
                       "src": "616:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 771,
+                    "id": 848,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2252,25 +2252,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 772,
+                  "id": 849,
                   "nodeType": "ExpressionStatement",
                   "src": "616:25:3"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 775,
+                    "id": 852,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 773,
+                      "id": 850,
                       "name": "minFee",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 728,
+                      "referencedDeclaration": 805,
                       "src": "647:6:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2281,11 +2281,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 774,
+                      "id": 851,
                       "name": "_minFee",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 762,
+                      "referencedDeclaration": 839,
                       "src": "656:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2298,28 +2298,28 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 776,
+                  "id": 853,
                   "nodeType": "ExpressionStatement",
                   "src": "647:16:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 778,
+            "id": 855,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 765,
+                "id": 842,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 764,
+                  "id": 841,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "600:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2333,15 +2333,15 @@
             "name": "setMinFee",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 763,
+              "id": 840,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 762,
+                  "id": 839,
                   "name": "_minFee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 778,
+                  "scope": 855,
                   "src": "577:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2350,7 +2350,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 761,
+                    "id": 838,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "577:4:3",
@@ -2367,12 +2367,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 766,
+              "id": 843,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "610:0:3"
             },
-            "scope": 822,
+            "scope": 899,
             "src": "558:110:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2380,7 +2380,7 @@
           },
           {
             "body": {
-              "id": 795,
+              "id": 872,
               "nodeType": "Block",
               "src": "724:58:3",
               "statements": [
@@ -2394,18 +2394,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 788,
+                        "id": 865,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 786,
+                          "id": 863,
                           "name": "_maxFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 780,
+                          "referencedDeclaration": 857,
                           "src": "738:7:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2416,11 +2416,11 @@
                         "operator": ">",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 787,
+                          "id": 864,
                           "name": "minFee",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 728,
+                          "referencedDeclaration": 805,
                           "src": "748:6:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2441,21 +2441,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 785,
+                      "id": 862,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1107,
-                        1108
+                        1184,
+                        1185
                       ],
-                      "referencedDeclaration": 1107,
+                      "referencedDeclaration": 1184,
                       "src": "730:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 789,
+                    "id": 866,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2469,25 +2469,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 790,
+                  "id": 867,
                   "nodeType": "ExpressionStatement",
                   "src": "730:25:3"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 793,
+                    "id": 870,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 791,
+                      "id": 868,
                       "name": "maxFee",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 731,
+                      "referencedDeclaration": 808,
                       "src": "761:6:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2498,11 +2498,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 792,
+                      "id": 869,
                       "name": "_maxFee",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 780,
+                      "referencedDeclaration": 857,
                       "src": "770:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2515,28 +2515,28 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 794,
+                  "id": 871,
                   "nodeType": "ExpressionStatement",
                   "src": "761:16:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 796,
+            "id": 873,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 783,
+                "id": 860,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 782,
+                  "id": 859,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1037,
+                  "referencedDeclaration": 1114,
                   "src": "714:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2550,15 +2550,15 @@
             "name": "setMaxFee",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 781,
+              "id": 858,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 780,
+                  "id": 857,
                   "name": "_maxFee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 796,
+                  "scope": 873,
                   "src": "691:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2567,7 +2567,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 779,
+                    "id": 856,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "691:4:3",
@@ -2584,12 +2584,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 784,
+              "id": 861,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "724:0:3"
             },
-            "scope": 822,
+            "scope": 899,
             "src": "672:110:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2597,21 +2597,21 @@
           },
           {
             "body": {
-              "id": 820,
+              "id": 897,
               "nodeType": "Block",
               "src": "850:105:3",
               "statements": [
                 {
                   "assignments": [
-                    804
+                    881
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 804,
+                      "id": 881,
                       "name": "ratioFee",
                       "nodeType": "VariableDeclaration",
-                      "scope": 821,
+                      "scope": 898,
                       "src": "856:13:3",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2620,7 +2620,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 803,
+                        "id": 880,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
                         "src": "856:4:3",
@@ -2633,17 +2633,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 809,
+                  "id": 886,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 807,
+                        "id": 884,
                         "name": "feeRate",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 725,
+                        "referencedDeclaration": 802,
                         "src": "885:7:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2660,32 +2660,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 805,
+                        "id": 882,
                         "name": "_balance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 798,
+                        "referencedDeclaration": 875,
                         "src": "872:8:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         }
                       },
-                      "id": 806,
+                      "id": 883,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "div",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 958,
+                      "referencedDeclaration": 1035,
                       "src": "872:12:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                         "typeString": "function (uint256,uint256) pure returns (uint256)"
                       }
                     },
-                    "id": 808,
+                    "id": 885,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2708,11 +2708,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 812,
+                        "id": 889,
                         "name": "maxFee",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 731,
+                        "referencedDeclaration": 808,
                         "src": "915:6:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2724,11 +2724,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 815,
+                            "id": 892,
                             "name": "ratioFee",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 804,
+                            "referencedDeclaration": 881,
                             "src": "932:8:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2737,11 +2737,11 @@
                           },
                           {
                             "argumentTypes": null,
-                            "id": 816,
+                            "id": 893,
                             "name": "minFee",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 728,
+                            "referencedDeclaration": 805,
                             "src": "942:6:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2762,32 +2762,32 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 813,
+                            "id": 890,
                             "name": "Math",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 859,
+                            "referencedDeclaration": 936,
                             "src": "923:4:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_Math_$859_$",
+                              "typeIdentifier": "t_type$_t_contract$_Math_$936_$",
                               "typeString": "type(library Math)"
                             }
                           },
-                          "id": 814,
+                          "id": 891,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "max",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 858,
+                          "referencedDeclaration": 935,
                           "src": "923:8:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                             "typeString": "function (uint256,uint256) pure returns (uint256)"
                           }
                         },
-                        "id": 817,
+                        "id": 894,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2815,32 +2815,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 810,
+                        "id": 887,
                         "name": "Math",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 859,
+                        "referencedDeclaration": 936,
                         "src": "906:4:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_Math_$859_$",
+                          "typeIdentifier": "t_type$_t_contract$_Math_$936_$",
                           "typeString": "type(library Math)"
                         }
                       },
-                      "id": 811,
+                      "id": 888,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "min",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 841,
+                      "referencedDeclaration": 918,
                       "src": "906:8:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (uint256,uint256) pure returns (uint256)"
                       }
                     },
-                    "id": 818,
+                    "id": 895,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2854,15 +2854,15 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 802,
-                  "id": 819,
+                  "functionReturnParameters": 879,
+                  "id": 896,
                   "nodeType": "Return",
                   "src": "899:51:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 821,
+            "id": 898,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2870,15 +2870,15 @@
             "name": "calculateFee",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 799,
+              "id": 876,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 798,
+                  "id": 875,
                   "name": "_balance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 821,
+                  "scope": 898,
                   "src": "808:13:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2887,7 +2887,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 797,
+                    "id": 874,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "808:4:3",
@@ -2904,15 +2904,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 802,
+              "id": 879,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 801,
+                  "id": 878,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 821,
+                  "scope": 898,
                   "src": "844:4:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2921,7 +2921,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 800,
+                    "id": 877,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "844:4:3",
@@ -2936,14 +2936,14 @@
               ],
               "src": "843:6:3"
             },
-            "scope": 822,
+            "scope": 899,
             "src": "786:169:3",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 823,
+        "scope": 900,
         "src": "173:784:3"
       }
     ],
@@ -2955,5 +2955,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-03T12:36:10.043Z"
+  "updatedAt": "2018-07-04T14:32:18.034Z"
 }
