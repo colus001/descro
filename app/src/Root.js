@@ -4,6 +4,8 @@ import App from './App'
 
 import { getWeb3, getDescro } from './utils/ethereum'
 
+import 'milligram/dist/milligram.css'
+
 class Root extends Component {
   descro = null
 
