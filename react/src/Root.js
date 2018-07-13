@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-import App from './App'
+import App from './components/App'
 
 import { getWeb3, getDescro } from './utils/ethereum'
 
@@ -26,13 +27,15 @@ class Root extends Component {
     if (!this.state.isIntiated) {
       return (
         <h3>
-          Loading Descro Contract
+          Loading... descro contract...
         </h3>
       )
     }
 
     return (
-      <App />
+      <BrowserRouter>
+        <App descro={this.descro} />
+      </BrowserRouter>
     );
   }
 }
