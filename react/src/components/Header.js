@@ -5,6 +5,7 @@ import Modal from './Modal'
 import Balance from './Balance'
 
 import history from '../history'
+import {validate} from 'wallet-address-validator'
 
 import './Header.css'
 
@@ -28,11 +29,7 @@ class Header extends Component {
     const {startAddress} = this.state;
     this.setState({
       isShow: show,
-      ...show
-        ? {}
-        : {
-          startAddress: ''
-        }
+      ...show ? {} : {startAddress: ''}
     })
   }
 
@@ -41,7 +38,24 @@ class Header extends Component {
   }
 
   createEscrow = () => {
-    console.log(this.props);
+    const {startAddress} = this.state;
+
+    if (!startAddress || startAddress.length === 0) {
+      alert('You are not ready to start!')
+      return
+    }
+
+    if (!validate(startAddress, 'ETH')) {
+      alert('You have entered wrong ethereum address')
+      return
+    }
+    
+    this.props.contract.createNewEscrow.sendTransaction(startAddress)
+      .then((result) => {
+        console.log(result);
+      }, (err) => {
+        err && console.error(err)
+      })
   }
 
   handleLogout = () => {
