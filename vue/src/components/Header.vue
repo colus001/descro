@@ -40,10 +40,16 @@ export default {
 	color: #fff;
 }
 
+.header--address {
+	margin-left: auto;
+}
+
 .header--top {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
+	min-height: 80px;
+	align-items: center;
 }
 
 .header--bottom {
@@ -54,10 +60,6 @@ export default {
 }
 
 .header--logo {
-	
 }
 
-.header--address {
-	margin-left: auto;
-}
 </style>
