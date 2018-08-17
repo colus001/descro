@@ -26,7 +26,12 @@
 }
 
 .header--address {
+	margin-top: 1rem;
 	margin-left: auto;
+}
+
+.header--address :first-child {
+	margin-right: 1rem;
 }
 
 .header--intro {
