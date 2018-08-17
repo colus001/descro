@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
+import { setContract } from './state/actions/contract'
 import App from './components/App'
 
 import { getWeb3, getDescro } from './utils/ethereum'
@@ -18,13 +20,12 @@ class Root extends Component {
     getWeb3()
       .then(getDescro)
       .then((descro) => {
-        this.descro = descro
-        this.setState({ isIntiated: true })
+        this.props.setContract(descro)
       })
   }
 
   render() {
-    if (!this.state.isIntiated) {
+    if (!this.props.contract) {
       return (
         <h3>
           Loading... descro contract...
@@ -34,10 +35,21 @@ class Root extends Component {
 
     return (
       <BrowserRouter>
-        <App descro={this.descro} />
+        <App />
       </BrowserRouter>
     );
   }
 }
 
-export default Root
+const mapStateToProps = (state) => ({
+  contract: state.contract,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setContract: (contract) => dispatch(setContract(contract)),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Root)
