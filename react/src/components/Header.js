@@ -56,7 +56,7 @@ class Header extends Component {
   }
 
   createEscrow = () => {
-    const {startAddress} = this.state;
+    const {startAddress, buyerValue} = this.state;
 
     if (!startAddress || startAddress.length === 0) {
       alert('You are not ready to start!')
@@ -68,14 +68,25 @@ class Header extends Component {
       return
     }
 
-    console.log(this.props.contract)
+    if (!buyerValue) {
+      alert('value is required')
+      return
+    }
+
+    if (!/^\d+$/.test(buyerValue)) {
+      alert('please insert value only number')
+      return
+    }
 
     this.props.contract
       .createNewEscrow
-      // .sendTransaction(startAddress, { from: this.props.address, value: etherToWei(1) })
-      .sendTransaction(startAddress, { from: this.props.address })
+      .sendTransaction(startAddress, { from: this.props.address, value: etherToWei(buyerValue) })
       .then((result) => {
         console.log(result);
+        if (result) {
+          alert('The escrow was successfully created.')
+          this.handleModal(false)();
+        }
       }, (err) => {
         err && console.error(err)
       })
