@@ -5,7 +5,6 @@ import Activity from './Activity';
 import Detail from './Detail';
 import './Content.css';
 
-
 class Content extends Component {
 	render() {
 		return (
