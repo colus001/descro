@@ -4,17 +4,27 @@ import './Header.css';
 
 class Header extends Component {
 	state = {
-		isShow: false,
-		address: '',
+    isShow: false,
+    searchAddress: '',
+		startAddress: '',
+	}
+
+	componentDidMount(){
+    // console.log(this.props);
+    // this.props.contract.getBalanceByEscrowId.call(0, {
+    //   from: fromAccount,
+    //   gas: gasLimit,
+    //   gasPrice: gasPriceInWei
+    // });
 	}
 
 	handleModal = (show) => () => {
-		const {address} = this.state;
+		const {startAddress} = this.state;
 		this.setState({
 			isShow: show,
-			...show ? {} : {address: ''}
+			...show ? {} : {startAddress: ''}
 		}, () => {
-			console.log(address);
+			console.log(startAddress);
 		})
 	}
 
@@ -25,7 +35,7 @@ class Header extends Component {
 	}
 
 	render() {
-		const { isShow, address } = this.state;
+		const { isShow, startAddress, searchAddress } = this.state;
 
 		return (
 			[<div className="header" key="header">
@@ -33,7 +43,7 @@ class Header extends Component {
 					<div className="header--top">
 						<div className="header--logo">DESCRO</div>
 						<div className="header--search">
-							<input type="text" className='header--search-input' placeholder="Search for a deal" />
+							<input type="text" className='header--search-input' placeholder="Search for a deal" value={searchAddress} onChange={this.handleChangeInput('searchAddress')} />
 						</div>
 						<div className="header--address">My Account</div>
 					</div>
@@ -59,7 +69,7 @@ class Header extends Component {
 				Start Deal Modal
 				<div>
 					<label htmlFor="buyerAddress">Seller Address</label>
-					<input type='text' id="buyerAddress" value={address} onChange={this.handleChangeInput('address')} />
+					<input type='text' id="buyerAddress" value={startAddress} onChange={this.handleChangeInput('address')} />
 				</div>
 					<div>
 						<button className="btn" onClick={this.handleModal(false)}>Cancel</button>
