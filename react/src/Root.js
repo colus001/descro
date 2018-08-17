@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { Router as BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { setContract } from './state/actions/contract'
 import App from './components/App'
+import history from './history'
 
 import { getWeb3, getDescro } from './utils/ethereum'
 
@@ -32,8 +33,8 @@ class Root extends Component {
     }
 
     return (
-      <BrowserRouter>
-        <App {...this.props} />
+      <BrowserRouter history={history}>
+        <App />
       </BrowserRouter>
     );
   }
