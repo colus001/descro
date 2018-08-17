@@ -8,8 +8,8 @@ class App extends Component {
   render() {
     return (
       <div className="wrap">
-        <Header />
-        <Content />
+        <Header {...this.props} />
+        <Content {...this.props} />
       </div>
     );
   }
