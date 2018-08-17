@@ -1,7 +1,7 @@
 <template>
  <div class="wrapper">
     <Header />
-    <div class="main">
+    <div class="main container">
       <router-view />
     </div>
   </div>
@@ -30,8 +30,8 @@ export default {
   min-height: 100vh;
 }
 
-// .main {
-//   padding-left: 300px;
-//   flex-grow: 3;
-// }
+.main {
+  padding: 20px 0;
+}
+
 </style>
