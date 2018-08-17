@@ -52,7 +52,7 @@ class Welcome extends Component {
         />
 
         <button type="button" onClick={this.handleSubmit}>Submit</button>
-        {process.env.NODE_ENV !== 'production' && '0x41A8FE58725906d892b3C9e2BecEFF384259B29c'}
+        {process.env.NODE_ENV !== 'production' && '0x41A8FE58725906d892b3C9e2BecEFF384259B29c 0xFcd061Fb89B4c5912b82F291303E10FfA3c11505'}
       </div>
     )
   }

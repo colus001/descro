@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import HeaderContainer from '../containers/HeaderContainer'
 import Content from './Content'
 

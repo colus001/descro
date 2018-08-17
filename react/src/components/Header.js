@@ -6,6 +6,7 @@ import Modal from './Modal'
 import Balance from './Balance'
 
 import history from '../history'
+import { getWeb3, weiToEther } from '../utils/ethereum'
 
 import './Header.css'
 
@@ -25,15 +26,24 @@ class Header extends Component {
     // });
   }
 
+  componentDidUpdate(prevProps) {
+    const { address } = this.props
+    if (!address || address === prevProps.address) {
+      return
+    }
+
+    console.log('web3');
+
+    getWeb3()
+      .then((instance) => instance.eth.getBalance(address))
+      .then((balance) => this.props.setBalance(weiToEther(balance)))
+  }
+
   handleModal = (show) => () => {
     const {startAddress} = this.state;
     this.setState({
       isShow: show,
-      ...show
-        ? {}
-        : {
-          startAddress: ''
-        }
+      ...show ? {} : { startAddress: '' }
     })
   }
 
@@ -82,7 +92,9 @@ class Header extends Component {
 							</div>
 	          </div>
 	          <div className="header--bottom">
-              <Balance balance={12}/>
+              {this.props.balance && (
+                <Balance balance={this.props.balance} />
+              )}
               <div className="header--action">
                 <div className="header--intro">
                   <div className="intro-title">DESCRO</div>
