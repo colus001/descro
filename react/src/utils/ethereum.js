@@ -14,7 +14,8 @@ export const getWeb3 = () => new Promise((resolve, reject) => {
   }
 
   window.addEventListener('load', () => {
-    if (process.env.NODE_ENV === 'production' && typeof web3 !== 'undefined') {
+    // if (process.env.NODE_ENV === 'production' && typeof web3 !== 'undefined') {
+    if (typeof web3 !== 'undefined') {
       console.log('Injected web3 detected.')
       web3Instance = new Web3(web3.currentProvider)
       resolve(web3Instance)

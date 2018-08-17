@@ -1,4 +1,4 @@
-import { SET_WALLET_ADDRESS, SET_BALANCE } from '../actions/wallet'
+import { SET_WALLET_ADDRESS, SET_BALANCE, CLEAR_WALLET } from '../actions/wallet'
 
 const initialState = {
   address: null,
@@ -16,6 +16,10 @@ const walletReducer = (state = initialState, action) => {
       return {
         ...state,
         balance: action.payload.balance,
+      }
+    case CLEAR_WALLET:
+      return {
+        ...initialState,
       }
     default:
       return state

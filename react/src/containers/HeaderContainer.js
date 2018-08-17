@@ -2,15 +2,16 @@ import { connect } from 'react-redux'
 
 import Header from '../components/Header'
 
-import { setWalletAddress, setBalance } from '../state/actions/wallet'
+import { setBalance, clearWallet } from '../state/actions/wallet'
 
 const mapStateToProps = (state) => ({
+  contract: state.contract,
   address: state.wallet.address,
   balance: state.wallet.balance,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  removeWalletAddress: () => dispatch(setWalletAddress(null)),
+  clearWallet: () => dispatch(clearWallet(null)),
   setBalance: (balance) => dispatch(setBalance(balance)),
 })
 

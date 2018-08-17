@@ -74,7 +74,7 @@ class Header extends Component {
   }
 
   handleLogout = () => {
-    this.props.removeWalletAddress()
+    this.props.clearWallet()
     history.push('/')
   }
 
