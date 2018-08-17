@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 import Modal from './Modal';
 import './Header.css';
 
@@ -45,7 +47,7 @@ class Header extends Component {
 			[<div className="header" key="header">
 				<div className='container'>
 					<div className="header--top">
-						<div className="header--logo">DESCRO</div>
+						<Link to="/" className="header--logo">DESCRO</Link>
 						<div className="header--search">
 							<input type="text" className='header--search-input' placeholder="Search for a deal" value={searchAddress} onChange={this.handleChangeInput('searchAddress')} />
 						</div>
@@ -84,5 +86,5 @@ class Header extends Component {
 			);
 		}
 	}
-	
+
 	export default Header;

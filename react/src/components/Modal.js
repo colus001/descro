@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import './Modal.css';
 
 class Modal extends Component {
-
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.isShow && nextProps.isShow !== this.props.isShow) {
 			// body에 클래스 추가 modal-open
@@ -20,14 +19,14 @@ class Modal extends Component {
 	render() {
 		const { children, isShow, wrapperClass } = this.props;
 
-		return (
-			isShow ? [
-				<div key='modal' className={wrapperClass ? `modal ${wrapperClass}` : "modal"}>
+		return isShow && (
+			<Fragment>
+				<div className={wrapperClass ? `modal ${wrapperClass}` : "modal"}>
 					{children}
-				</div>,
-				<div key='modal-bg' className="modal-bg" onClick={this.hideModal} />
-			] : ''
-		);
+				</div>
+				<div className="modal-bg" onClick={this.hideModal} />
+			</Fragment>
+		)
 	}
 }
 
