@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/colus001/descro#readme",
   "dependencies": {
+    "classnames": "^2.2.6",
     "openzeppelin-solidity": "1.10.0",
     "wallet-address-validator": "^0.1.7"
   }
