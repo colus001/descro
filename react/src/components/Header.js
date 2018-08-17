@@ -1,6 +1,7 @@
-import React, {Fragment, Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Fragment, Component } from 'react'
+import { Link } from 'react-router-dom'
 
+import Container from './Container'
 import Modal from './Modal'
 import Balance from './Balance'
 
@@ -68,39 +69,45 @@ class Header extends Component {
 
     return (
 			<Fragment>
-	      <div className="header" key="header">
-	        <div className='container'>
+	      <div className="header">
+	        <Container>
 	          <div className="header--top">
-	            <Link to="/" className="header--logo">DESCRO</Link>
+	            <Link to="/" className="header--logo">
+								DESCRO
+							</Link>
 	            <div className="header--search">
-	              <input type="text" className='header--search-input' placeholder="Search for a deal" value={searchAddress} onChange={this.handleChangeInput('searchAddress')}/>
+	              <input
+									type="text"
+									className='header--search-input'
+									placeholder="Search for a deal"
+									value={searchAddress}
+									onChange={this.handleChangeInput('searchAddress')}
+								/>
 	            </div>
-	            <div className="header--address">My Account</div>
+							<div className="header--address">
+								{this.props.address ? (
+									<Fragment>
+										<button>My Account</button>
+										<button onClick={this.handleLogout}>Logout</button>
+									</Fragment>
+								) : (
+									<Link to="/">Login</Link>
+								)}
+							</div>
 	          </div>
 	          <div className="header--bottom">
-	            <div className="balance-wrap">
-	              <span className="balance-name">BALANCE</span>
-	              {
-	                this.props.address && (<div className="header--address">
-	                  <button>My Account</button>
-	                  <button onClick={this.handleLogout}>Logout</button>
-	                </div>)
-	              }
-	            </div>
-	            <div className="header--bottom">
-	              <Balance balance={12}/>
-	              <div className="header--action">
-	                <div className="header--intro">
-	                  <div className="intro-title">DESCRO</div>
-	                  <div className="intro-body">Decentralized Escrow for Ethereum</div>
-	                </div>
-	                <button className="btn" onClick={this.handleModal(true)}>Start Deal</button>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
+              <Balance balance={12}/>
+              <div className="header--action">
+                <div className="header--intro">
+                  <div className="intro-title">DESCRO</div>
+                  <div className="intro-body">Decentralized Escrow for Ethereum</div>
+                </div>
+                <button className="btn" onClick={this.handleModal(true)}>Start Deal</button>
+              </div>
+            </div>
+	        </Container>
 	      </div>
-	      <Modal key='modal' isShow={isShow} hideModal={this.handleModal(false)}>
+	      <Modal isShow={isShow} hideModal={this.handleModal(false)}>
 	        Start Deal Modal
 	        <div>
 	          <label htmlFor="buyerAddress">Seller Address</label>
