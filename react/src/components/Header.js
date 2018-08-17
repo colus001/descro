@@ -65,7 +65,11 @@ class Header extends Component {
       return
     }
 
-    this.props.contract.createNewEscrow.sendTransaction(startAddress)
+    console.log(this.props.contract)
+
+    this.props.contract
+      .createNewEscrow
+      .sendTransaction(startAddress, { from: this.props.address })
       .then((result) => {
         console.log(result);
       }, (err) => {
