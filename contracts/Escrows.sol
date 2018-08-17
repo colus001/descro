@@ -28,6 +28,7 @@ contract Escrows is Pausible {
   }
 
   Escrow[] public escrows;
+  uint public totalEscrowsCount;
 
   mapping (address => uint) escrowCountByBuyer;
   mapping (address => uint) escrowCountBySeller;
@@ -98,6 +99,7 @@ contract Escrows is Pausible {
   ) internal {
     require(_buyer != _seller);
     uint id = escrows.push(Escrow(now, _buyer, _seller, _balance, _status));
+    totalEscrowsCount++;
     escrowCountByBuyer[_buyer] = escrowCountByBuyer[_buyer].add(1);
     escrowCountBySeller[_seller] = escrowCountBySeller[_seller].add(1);
 
