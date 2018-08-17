@@ -10,7 +10,7 @@ class App extends Component<Props> {
   render() {
     return (
       <div className="App">
-        <h1>Welcome to React</h1>
+        <h1>Welcome to descro</h1>
       </div>
     );
   }

@@ -19,9 +19,7 @@ class Root extends Component {
   componentDidMount() {
     getWeb3()
       .then(getDescro)
-      .then((descro) => {
-        this.props.setContract(descro)
-      })
+      .then(this.props.setContract)
   }
 
   render() {
