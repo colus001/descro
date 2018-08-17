@@ -43,7 +43,7 @@ class Welcome extends Component {
 
     return (
       <div className="Welcome">
-        <label for="address">Enter your address</label>
+        <label htmlFor="address">Enter your address</label>
         <input
           id="address"
           type="text"
@@ -52,6 +52,7 @@ class Welcome extends Component {
         />
 
         <button type="button" onClick={this.handleSubmit}>Submit</button>
+        {process.env.NODE_ENV !== 'production' && '0x41A8FE58725906d892b3C9e2BecEFF384259B29c'}
       </div>
     )
   }
