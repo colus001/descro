@@ -7,7 +7,7 @@ import Modal from './Modal'
 import Balance from './Balance'
 
 import history from '../history'
-import { getWeb3, weiToEther } from '../utils/ethereum'
+import { getWeb3, weiToEther, etherToWei } from '../utils/ethereum'
 
 import './Header.css'
 
@@ -69,6 +69,7 @@ class Header extends Component {
 
     this.props.contract
       .createNewEscrow
+      // .sendTransaction(startAddress, { from: this.props.address, value: etherToWei(1) })
       .sendTransaction(startAddress, { from: this.props.address })
       .then((result) => {
         console.log(result);
