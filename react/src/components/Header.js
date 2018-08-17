@@ -32,7 +32,11 @@ class Header extends Component {
 		this.setState({
 			[name]: e.target.value,
 		})
-	}
+  }
+  
+  createEscrow = () => {
+    console.log(this.props);
+  }
 
 	render() {
 		const { isShow, startAddress, searchAddress } = this.state;
@@ -69,11 +73,11 @@ class Header extends Component {
 				Start Deal Modal
 				<div>
 					<label htmlFor="buyerAddress">Seller Address</label>
-					<input type='text' id="buyerAddress" value={startAddress} onChange={this.handleChangeInput('address')} />
+					<input type='text' id="buyerAddress" value={startAddress} onChange={this.handleChangeInput('startAddress')} />
 				</div>
 					<div>
 						<button className="btn" onClick={this.handleModal(false)}>Cancel</button>
-						<button className="btn" onClick={this.handleModal(false)}>Confirm</button>
+						<button className="btn" onClick={this.createEscrow}>Confirm</button>
 					</div>
 			</Modal>
 				]
