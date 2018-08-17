@@ -33,8 +33,6 @@ class Header extends Component {
       return
     }
 
-    console.log('web3');
-
     getWeb3()
       .then((instance) => instance.eth.getBalance(address))
       .then((balance) => this.props.setBalance(weiToEther(balance)))

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { validate } from 'wallet-address-validator'
 
 import { setWalletAddress } from '../state/actions/wallet'
+import { getWeb3 } from '../utils/ethereum'
 
 import './Welcome.css'
 

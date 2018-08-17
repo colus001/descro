@@ -3,6 +3,7 @@ import { Router as BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { setContract } from './state/actions/contract'
+import { setWalletAddress } from './state/actions/wallet'
 import App from './components/App'
 import history from './history'
 
@@ -19,6 +20,13 @@ class Root extends Component {
     getWeb3()
       .then(getDescro)
       .then(this.props.setContract)
+      .then(getWeb3)
+      .then((instance) => instance.eth.getAccounts())
+      .then((addresses) => {
+        const [address] = addresses
+        if (!address) return
+        this.props.setWalletAddress(address)
+      })
   }
 
   render() {
@@ -45,6 +53,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setContract: (contract) => dispatch(setContract(contract)),
+  setWalletAddress: (address) => dispatch(setWalletAddress(address)),
 })
 
 export default connect(
