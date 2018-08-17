@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import Content from './Content';
 
 import './App.css';
 
-type Props = {
-  descro: any,
-}
-
-class App extends Component<Props> {
+class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Welcome to descro</h1>
+      <div className="wrap">
+        <Header {...this.props} />
+        <Content {...this.props} />
       </div>
     );
   }
