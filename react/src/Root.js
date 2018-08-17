@@ -33,7 +33,7 @@ class Root extends Component {
 
     return (
       <BrowserRouter>
-        <App />
+        <App {...this.props} />
       </BrowserRouter>
     );
   }
