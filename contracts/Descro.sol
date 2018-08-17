@@ -12,19 +12,18 @@ import "./Escrows.sol";
 contract Descro is Business, Escrows {
   using SafeMath for uint256;
 
-  function createNewEscrow(address _buyer, address _seller) external onlyInService onlyValidAddress(_buyer) onlyValidAddress(_seller) {
-    _addNewEscrow(_buyer, _seller, 0, CREATED);
-  }
-
-  function depositNewEscrow(address _seller) external payable onlyInService onlyValidAddress(_seller) {
+  function createNewEscrow(address _seller) external payable moreThanFee onlyInService onlyValidAddress(_seller) {
     require(msg.sender != _seller);
     _addNewEscrow(msg.sender, _seller, msg.value, DEPOSITED);
   }
 
   function deposit(uint _id) external payable moreThanFee {
     Escrow storage escrow = escrows[_id];
-    escrow.balance = msg.value;
-    escrow.status = DEPOSITED;
+    require(msg.sender == escrow.buyer);
+    escrow.balance += msg.value;
+    if (escrow.status != DEPOSITED) {
+      escrow.status = DEPOSITED;
+    }
 
     logEscrow(_id, escrow);
   }
