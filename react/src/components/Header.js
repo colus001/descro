@@ -15,7 +15,8 @@ class Header extends Component {
   state = {
     isShow: false,
     searchAddress: '',
-    startAddress: ''
+    startAddress: '',
+    buyerValue: ''
   }
 
   componentDidMount() {
@@ -39,7 +40,11 @@ class Header extends Component {
   }
 
   handleModal = (show) => () => {
-    const {startAddress} = this.state;
+    if (show && !this.props.address) {
+      alert('please login first')
+      return
+    }
+
     this.setState({
       isShow: show,
       ...show ? {} : {startAddress: ''}
@@ -82,7 +87,7 @@ class Header extends Component {
   }
 
   render() {
-    const {isShow, startAddress, searchAddress} = this.state;
+    const {isShow, startAddress, searchAddress, buyerValue} = this.state;
 
     return (
 			<Fragment>
@@ -131,6 +136,8 @@ class Header extends Component {
 	        <div>
 	          <label htmlFor="buyerAddress">Seller Address</label>
 	          <input type='text' id="buyerAddress" value={startAddress} onChange={this.handleChangeInput('startAddress')}/>
+            <label htmlFor="buyerValue">Value</label>
+	          <input type='text' id="buyerValue" value={buyerValue} onChange={this.handleChangeInput('buyerValue')}/>
 	        </div>
 	        <div>
 	          <button className="btn" onClick={this.handleModal(false)}>Cancel</button>
