@@ -10,8 +10,18 @@ import './Header.css'
 
 class Header extends Component {
 	state = {
-		isShow: false,
-		address: '',
+    isShow: false,
+    searchAddress: '',
+		startAddress: '',
+	}
+
+	componentDidMount(){
+    // console.log(this.props);
+    // this.props.contract.getBalanceByEscrowId.call(0, {
+    //   from: fromAccount,
+    //   gas: gasLimit,
+    //   gasPrice: gasPriceInWei
+    // });
 	}
 
 	handleModal = (show) => () => {
@@ -27,7 +37,11 @@ class Header extends Component {
 		this.setState({
 			[name]: e.target.value,
 		})
-	}
+  }
+
+  createEscrow = () => {
+    console.log(this.props);
+  }
 
 	handleLogout = () => {
 		this.props.removeWalletAddress()

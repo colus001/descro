@@ -24,9 +24,9 @@ class Root extends Component {
   render() {
     if (!this.props.contract) {
       return (
-        <h3>
-          Loading... descro contract...
-        </h3>
+        <div className="loading">
+          <h3>Loading... descro contract...</h3>
+        </div>
       )
     }
 
