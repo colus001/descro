@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Activity from './Activity';
 import Detail from './Detail';
+
 import './Content.css';
 
 class Content extends Component {
@@ -12,7 +13,7 @@ class Content extends Component {
 				<div className='main-content'>
 					<Switch>
 						<Route exact path="/" component={Activity}/>
-						<Route path="/escrow/:id" component={Detail} />
+						<Route path="/escrows/:id" component={Detail} />
 					</Switch>
 				</div>
 			</div>

@@ -10,23 +10,16 @@ contract('Descro', function (accounts) {
   const owner = accounts[0];
   let descro;
 
-  it('should make create function below 200,000', () => {
+  it('should make create function below 250,000', () => {
     const buyer = accounts[1];
     const seller = accounts[2];
 
-    let createNewEscrowGas;
-    let depositNewEscrowGas;
-
     Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.createNewEscrow.estimateGas(buyer, seller, { from: buyer }))
-      .then((gas) => { createNewEscrowGas = gas })
-      .then(() => descro.depositNewEscrow.estimateGas(seller, { from: buyer, value: etherToWei(1) }))
-      .then((gas) => { depositNewEscrowGas = gas })
-      .then(() => {
-        console.log('GasPrices:', { createNewEscrowGas, depositNewEscrowGas })
-        assert.isAtMost(createNewEscrowGas, 200000, "createNewEscrowGas is over 200,000")
-        assert.isAtMost(depositNewEscrowGas, 200000, "depositNewEscrowGas is over 200,000")
+      .then(() => descro.createNewEscrow.estimateGas(seller, { from: buyer, value: etherToWei(1) }))
+      .then((gas) => {
+        console.log('GasPrices:', { gas })
+        assert.isAtMost(gas, 250000, "createNewEscrowGas is over 250,000")
       })
   })
 
@@ -36,15 +29,15 @@ contract('Descro', function (accounts) {
 
     return Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.createNewEscrow.sendTransaction(buyer, seller, { from: buyer }))
-      .then(() => descro.createNewEscrow.sendTransaction(buyer, seller, { from: buyer }))
+      .then(() => descro.createNewEscrow.sendTransaction(seller, { from: buyer, value: etherToWei(0.5) }))
+      .then(() => descro.createNewEscrow.sendTransaction(seller, { from: buyer, value: etherToWei(0.5) }))
       .then(() => descro.getEscrowsByBuyer.call(buyer))
       .then((escrowIds) => {
         assert.equal(escrowIds.length, 2, 'Escrow has not been created')
         return descro.getBalanceByEscrowId.call(escrowIds[escrowIds.length - 1])
       })
       .then((balance) => {
-        assert.equal(balance.toNumber(), 0, 'Balance is defined properly');
+        assert.equal(balance.toNumber(), etherToWei(0.5), 'Balance is defined properly');
       })
   })
 
@@ -55,7 +48,7 @@ contract('Descro', function (accounts) {
     return Descro.deployed()
       .then((instance) => { descro = instance })
       .then(() => {
-        return descro.depositNewEscrow.sendTransaction(buyer, { from: seller, value: etherToWei(1) })
+        return descro.createNewEscrow.sendTransaction(buyer, { from: seller, value: etherToWei(1) })
       })
       .then(() => {
         return descro.getEscrowsByBuyer.call(seller)
@@ -82,20 +75,13 @@ contract('Descro', function (accounts) {
 
     return Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.createNewEscrow.sendTransaction(buyer, seller, { from: buyer }))
+      .then(() => descro.createNewEscrow.sendTransaction(seller, { from: buyer, value: etherToWei(TEST_AMOUNT) }))
       .then(() => descro.getEscrowsByBuyer.call(buyer))
       .then((escrowIds) => {
         assert.equal(escrowIds.length, 1, 'Escrow has not been created')
         escrowId = escrowIds[escrowIds.length - 1]
 
         return getStatus(escrowId)()
-      })
-      .then((status) => {
-        assert.equal(status, STATUS.CREATED, 'Failed to set status created')
-
-        return descro.deposit
-          .sendTransaction(escrowId, { from: buyer, value: etherToWei(TEST_AMOUNT) })
-          .then(getStatus(escrowId))
       })
       .then((status) => {
         assert.equal(status, STATUS.DEPOSITED, 'Failed to deposit')
@@ -141,7 +127,7 @@ contract('Descro', function (accounts) {
 
     return Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.depositNewEscrow.sendTransaction(seller, {
+      .then(() => descro.createNewEscrow.sendTransaction(seller, {
         from: buyer,
         value: etherToWei(TEST_AMOUNT),
       }))
@@ -178,32 +164,32 @@ contract('Descro', function (accounts) {
       })
   })
 
-  it('should cancel escrow before desposit', () => {
-    const buyer = accounts[7];
-    const seller = accounts[8];
-    let escrowId;
-
-    const getStatus = (id) => () => descro.escrows.call(id)
-      .then((escrow) => escrow[escrow.length - 1].toNumber())
-
-    return Descro.deployed()
-      .then((instance) => { descro = instance })
-      .then(() => descro.createNewEscrow.sendTransaction(buyer, seller, {
-        from: buyer,
-      }))
-      .then(() => descro.getEscrowsByBuyer.call(buyer))
-      .then((escrowIds) => {
-        assert.isAtLeast(escrowIds.length, 1, 'Escrow has not been created')
-        escrowId = escrowIds[escrowIds.length - 1]
-
-        return descro.cancel
-          .sendTransaction(escrowId, { from: buyer })
-          .then(getStatus(escrowId));
-      })
-      .then((status) => {
-        assert.equal(status, STATUS.CANCELLED, 'Escrow has not been cancelled properly')
-      })
-  })
+  // it('should cancel escrow before desposit', () => {
+  //   const buyer = accounts[7];
+  //   const seller = accounts[8];
+  //   let escrowId;
+  //
+  //   const getStatus = (id) => () => descro.escrows.call(id)
+  //     .then((escrow) => escrow[escrow.length - 1].toNumber())
+  //
+  //   return Descro.deployed()
+  //     .then((instance) => { descro = instance })
+  //     .then(() => descro.createNewEscrow.sendTransaction(buyer, seller, {
+  //       from: buyer,
+  //     }))
+  //     .then(() => descro.getEscrowsByBuyer.call(buyer))
+  //     .then((escrowIds) => {
+  //       assert.isAtLeast(escrowIds.length, 1, 'Escrow has not been created')
+  //       escrowId = escrowIds[escrowIds.length - 1]
+  //
+  //       return descro.cancel
+  //         .sendTransaction(escrowId, { from: buyer })
+  //         .then(getStatus(escrowId));
+  //     })
+  //     .then((status) => {
+  //       assert.equal(status, STATUS.CANCELLED, 'Escrow has not been cancelled properly')
+  //     })
+  // })
 
   it('should refund if buyer cancel escrow', () => {
     const TEST_AMOUNT = 0.5;
@@ -217,7 +203,7 @@ contract('Descro', function (accounts) {
 
     return Descro.deployed()
       .then((instance) => { descro = instance })
-      .then(() => descro.depositNewEscrow.sendTransaction(seller, {
+      .then(() => descro.createNewEscrow.sendTransaction(seller, {
         from: buyer,
         value: etherToWei(TEST_AMOUNT),
       }))
@@ -321,7 +307,7 @@ contract('Descro', function (accounts) {
       .then((isPaused) => assert.equal(isPaused, true, "Contract is not paused"))
       .then(() => {
         return descro.createNewEscrow
-          .sendTransaction(buyer, seller, { from: buyer })
+          .sendTransaction(seller, { from: buyer })
           .then(() => assert.equal(true, false, "Should crash send transaction in paused status"))
           .catch((error) => assert.equal(true, true))
       })
