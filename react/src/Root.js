@@ -11,8 +11,6 @@ import { getWeb3, getDescro } from './utils/ethereum'
 import 'milligram/dist/milligram.css'
 
 class Root extends Component {
-  descro = null
-
   state = {
     isIntiated: false,
   }
@@ -40,8 +38,9 @@ class Root extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   contract: state.contract,
+  ...ownProps,
 })
 
 const mapDispatchToProps = (dispatch) => ({
