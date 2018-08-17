@@ -1,6 +1,6 @@
 <template>
  <div class="wrapper">
-    <SideBar />
+    <Header />
     <div class="main">
       <router-view />
     </div>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import SideBar from '@/components/SideBar.vue'
+import Header from '@/components/Header.vue'
 
 export default {
   name: 'Wrapper',
   components: {
-    SideBar
+    Header
   }
 }
 </script>
@@ -25,13 +25,13 @@ export default {
 }
 
 .wrapper {
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   min-height: 100vh;
 }
 
-.main {
-  padding-left: 300px;
-  flex-grow: 3;
-}
+// .main {
+//   padding-left: 300px;
+//   flex-grow: 3;
+// }
 </style>
