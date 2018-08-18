@@ -18,7 +18,7 @@ class Activity extends Component {
       <table>
         <thead>
           <tr>
-            <th>Contract #</th>
+            <th>#</th>
             <th>Date</th>
             <th>Status</th>
             <th>Detail</th>
