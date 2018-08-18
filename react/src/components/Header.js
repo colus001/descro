@@ -62,15 +62,14 @@ class Header extends Component {
       return
     }
 
-    this.props.contract.getEscrowsByBuyer.call(searchAddress)
-      .then((result) => {
-        console.log(result);
-      })
-
-    this.props.contract.getEscrowsBySeller.call(searchAddress)
-      .then((result) => {
-        console.log(result);
-      })
+    history.push({
+      pathname: '/escrows',
+      id: searchAddress,
+    })
+    
+    this.setState({
+      searchAddress: ''
+    })
   }
 
   createEscrow = () => {
@@ -91,7 +90,7 @@ class Header extends Component {
       return
     }
 
-    if (!/^\d+$/.test(buyerValue)) {
+    if (!/^[0-9.]+$/.test(buyerValue)) {
       alert('please insert value only number')
       return
     }
@@ -122,7 +121,8 @@ class Header extends Component {
   }
 
   render() {
-    const {isShow, startAddress, searchAddress, buyerValue} = this.state;
+    const {isShow, startAddress, searchAddress, buyerValue} = this.state
+    const {address} = this.props
 
     return (
 			<Fragment>
@@ -145,7 +145,7 @@ class Header extends Component {
 							<div className="header--address">
 								{this.props.address ? (
 									<Fragment>
-										<Link to="/escrows"><button>My Account</button></Link>
+										<Link to={{ pathname: '/escrows', id: address }}><button>My Account</button></Link>
 										<button onClick={this.handleLogout}>Logout</button>
 									</Fragment>
 								) : (

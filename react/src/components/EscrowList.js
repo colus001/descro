@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import history from '../history'
 
 import { weiToEther } from '../utils/ethereum'
 
@@ -23,8 +23,18 @@ export const parseContract = (escrow) => ({
 
 class EscrowList extends Component {
   componentDidMount() {
-    const { address, contract } = this.props
-    if (!address) return
+    const { location } = this.props
+    const address = location.id;
+
+    if (!address) {
+      history.push('/')
+    } else {
+      this.getAllEscrows(address)
+    }
+  }
+
+  getAllEscrows(address) {
+    const { contract } = this.props
 
     Promise
       .all([
@@ -40,14 +50,20 @@ class EscrowList extends Component {
       .then(([buyers, sellers]) => this.props.setEscrows(buyers, sellers))
   }
 
+  componentWillReceiveProps(nextProps) {
+		if (this.props.location.id !== nextProps.location.id) {
+			this.getAllEscrows(nextProps.location.id)
+		}
+	}
+
   render() {
-    if (!this.props.address) {
+    const { escrows } = this.props
+
+    if (escrows.asBuyer.length === 0 && escrows.asSeller.length === 0) {
       return (
-        <Redirect to="/" />
+        <h3>There is no result</h3>
       )
     }
-
-    const { escrows } = this.props
 
     return (
       <div className="EscrowList">
