@@ -98,7 +98,21 @@ class Detail extends Component {
     switch (actionName) {
       case 'deposit':
         this.handleModal(true)
-        this.handleModalConfirm = () => this.contractFunc('deposit', {value: etherToWei(this.state.balanceValue)})
+        this.handleModalConfirm = () => {
+          const { balanceValue } = this.state
+
+          if (!balanceValue) {
+            alert('Balance is required')
+            return
+          }
+
+          if (!/^[0-9.]+$/.test(balanceValue)) {
+            alert('Please insert only number')
+            return
+          }
+          
+          this.contractFunc('deposit', {value: etherToWei(balanceValue)})
+        }
         break
       case 'send product':
         this.contractFunc('sendProduct')
