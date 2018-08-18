@@ -5,7 +5,6 @@ import EscrowListContainer from '../containers/EscrowListContainer'
 import Welcome from '../modules/Welcome'
 import LatestEscrows from '../modules/LatestEscrows'
 
-import Activity from './Activity'
 import Detail from './Detail'
 
 import './Content.css'

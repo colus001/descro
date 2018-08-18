@@ -62,6 +62,21 @@ contract Descro is Business, Escrows {
     logEscrow(_id, escrow);
   }
 
+  function dispute(uint _id) external onlyBuyerOrSeller(_id) onlyStatus(_id, PRODUCT_SENT) {
+    Escrow storage escrow = escrows[_id];
+    escrow.status = IN_DISPUTE;
+
+    logEscrow(_id, escrow);
+  }
+
+  function arbitrate(uint _id, uint8 _status) external onlyOwner onlyStatus(_id, IN_DISPUTE) {
+    Escrow storage escrow = escrows[_id];
+    require(_status == APPROVED || _status == CANCELLED);
+    escrow.status = _status;
+
+    logEscrow(_id, escrow);
+  }
+
   function getBalanceByEscrowId(uint _id) external view returns (uint) {
     return escrows[_id].balance;
   }
