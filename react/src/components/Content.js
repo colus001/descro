@@ -16,8 +16,8 @@ class Content extends Component {
 				<Switch>
 					<Route exact path="/" component={Welcome}/>
 					<Route path="/activity" component={Activity}/>
-					<Route path="/escrows/:id" component={Detail} />
-					<Route path="/escrows" component={EscrowListContainer} />
+					<Route exact path="/escrows/:id" component={Detail} />
+					<Route exact path="/escrows" component={EscrowListContainer} />
 				</Switch>
 			</div>
 		)

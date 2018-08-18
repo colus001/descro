@@ -9,16 +9,16 @@ const DUMMY = [{
   id: 1,
   createdAt: new Date(),
   status: 1,
-  description: 'Akron, OH',
   balance: 1,
-  fee: 0.01,
+  buyer: '0x53edeaae2583767e76d245b0249d90ecbdd1aa94',
+  seller: '0x4f46df0df83f53b6678b88aa3e896a48100afdee',
 }, {
   id: 2,
   createdAt: new Date(),
   status: 3,
-  description: 'Akron, OH',
   balance: 10,
-  fee: 0.01,
+  buyer: '0x53edeaae2583767e76d245b0249d90ecbdd1aa94',
+  seller: '0x4f46df0df83f53b6678b88aa3e896a48100afdee',
 }]
 
 class Activity extends Component {
@@ -36,9 +36,8 @@ class Activity extends Component {
             <th>Contract #</th>
             <th>Date</th>
             <th>Status</th>
-            <th>Description</th>
+            <th>Accounts</th>
             <th>Balance</th>
-            <th>Fee</th>
           </tr>
         </thead>
         <tbody>
@@ -47,9 +46,12 @@ class Activity extends Component {
               <td>{escrow.id}</td>
               <td>{formatDate(escrow.createdAt)}</td>
               <td>{formatStatus(escrow.status)}</td>
-              <td>{escrow.description}</td>
-              <td>{escrow.balance}</td>
-              <td>{escrow.fee}</td>
+              <td>
+                <strong>Buyer</strong> {escrow.buyer}
+                <br />
+                <strong>Seller</strong> {escrow.seller}
+              </td>
+              <td>{escrow.balance} ether</td>
             </tr>
           ))}
         </tbody>

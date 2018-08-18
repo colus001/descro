@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 
+import { weiToEther } from '../utils/ethereum'
+
 import Activity from './Activity'
 
-const getContracts = (contract) => (escrowsId) => Promise.all(
+export const getContracts = (contract) => (escrowsId) => Promise.all(
   escrowsId.map((rawId) => {
     const id = rawId.toNumber()
     return contract.escrows.call(id).then(escrow => ([...escrow, id]))
   })
 )
 
-const parseContract = (escrow) => ({
+export const parseContract = (escrow) => ({
   id: escrow[escrow.length - 1],
   createdAt: escrow[0].toNumber() * 1000,
   buyer: escrow[1],
   seller: escrow[2],
-  balance: escrow[3].toNumber(),
+  balance: weiToEther(escrow[3].toNumber()),
   status: escrow[4].toNumber(),
 })
 
