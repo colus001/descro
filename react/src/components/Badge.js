@@ -19,7 +19,7 @@ const getIconName = (status) => {
     case STATUS.CANCELLED:
       return 'fas fa-minus-circle'
     case STATUS.REFUNDED:
-      return 'fas fa-fackward'
+      return 'fas fa-backward'
     case STATUS.IN_DISPUTE:
       return 'fas fa-exclamation'
     default:
