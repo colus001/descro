@@ -26,7 +26,7 @@ class Modal extends Component {
 				<div className={classNames('modal', className)}>
           {children}
           {showBtns && <div>
-            <button className="button button-outline" onClick={cancelFunc || cancelFunc || null}>Cancel</button>
+            <button className="button button-outline" onClick={cancelFunc || this.hideModal || null}>Cancel</button>
             <button className="button" onClick={confirmFunc && confirmFunc}>Confirm</button>
           </div>}
 				</div>
