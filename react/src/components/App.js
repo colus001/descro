@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import HeaderContainer from '../containers/HeaderContainer'
 import Content from './Content'
+import Footer from './Footer'
 
 import './App.css'
 
@@ -14,6 +15,8 @@ class App extends Component {
         <div className="container">
           <Content />
         </div>
+
+        <Footer />
       </div>
     )
   }

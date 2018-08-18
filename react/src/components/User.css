@@ -1,0 +1,6 @@
+.User {
+}
+
+.User span {
+  text-transform: capitalize;
+}

@@ -4,6 +4,7 @@ import history from '../history'
 import { weiToEther } from '../utils/ethereum'
 
 import Activity from './Activity'
+import User from './User'
 
 export const getContracts = (contract) => (escrowsId) => Promise.all(
   escrowsId.map((rawId) => {
@@ -67,10 +68,10 @@ class EscrowList extends Component {
 
     return (
       <div className="EscrowList">
-        <h3>As Buyer</h3>
+        <h3><User type="buyer" /></h3>
         <Activity escrows={escrows.asBuyer} />
 
-        <h3>As Seller</h3>
+        <h3><User type="seller" /></h3>
         <Activity escrows={escrows.asSeller} />
       </div>
     )
