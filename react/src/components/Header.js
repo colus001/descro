@@ -169,32 +169,34 @@ class Header extends Component {
 	      </div>
 	      <Modal isShow={isShow} hideModal={this.handleModal(false)}>
 	        <h3>Create New Escrow</h3>
-	        <div>
-	          <label htmlFor="buyerAddress">
-              Seller Address
-            </label>
-	          <input
-              type="text"
-              id="buyerAddress"
-              placeholder="Enter ethereum address of seller"
-              value={startAddress}
-              onChange={this.handleChangeInput('startAddress')}
-            />
-            <label htmlFor="buyerValue">
-              Amount
-            </label>
-	          <input
-              type="text"
-              id="buyerValue"
-              placeholder="Enter how much ethereum you deposit"
-              value={buyerValue}
-              onChange={this.handleChangeInput('buyerValue')}
-            />
-	        </div>
-	        <div>
-	          <button className="btn" onClick={this.handleModal(false)}>Cancel</button>
-	          <button className="btn" onClick={this.createEscrow}>Confirm</button>
-	        </div>
+
+          <label htmlFor="buyerAddress">
+            Seller Address
+          </label>
+          <input
+            type="text"
+            id="buyerAddress"
+            placeholder="Enter ethereum address of seller"
+            value={startAddress}
+            onChange={this.handleChangeInput('startAddress')}
+          />
+          <label htmlFor="buyerValue">
+            Amount
+          </label>
+          <input
+            type="text"
+            id="buyerValue"
+            placeholder="Enter how much ethereum you deposit"
+            value={buyerValue}
+            onChange={this.handleChangeInput('buyerValue')}
+          />
+
+          <hr />
+
+          <div className="header__buttons">
+            <button className="button" onClick={this.handleModal(false)}>Cancel</button>
+            <button className="button" onClick={this.createEscrow}>Confirm</button>
+          </div>
 	      </Modal>
 	    </Fragment>
 		)
