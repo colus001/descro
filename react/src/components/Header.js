@@ -4,10 +4,12 @@ import { validate } from 'wallet-address-validator'
 
 import Container from './Container'
 import Modal from './Modal'
-import Balance from './Balance'
+import Loading from './Loading'
+import BalanceContainer from '../containers/BalanceContainer'
 
 import history from '../history'
-import { getWeb3, weiToEther, etherToWei } from '../utils/ethereum'
+import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
+import { loadingTime } from '../settings'
 
 import './Header.css'
 
@@ -17,20 +19,6 @@ class Header extends Component {
     searchAddress: '',
     startAddress: '',
     buyerValue: ''
-  }
-
-  componentDidMount() {
-  }
-
-  componentDidUpdate(prevProps) {
-    const { address } = this.props
-    if (!address || address === prevProps.address) {
-      return
-    }
-
-    getWeb3()
-      .then((instance) => instance.eth.getBalance(address))
-      .then((balance) => this.props.setBalance(weiToEther(balance)))
   }
 
   handleModal = (show) => () => {
@@ -103,22 +91,24 @@ class Header extends Component {
 
     this.props.contract.createNewEscrow
       .sendTransaction(startAddress, { from: this.props.address, value: etherToWei(buyerValue) })
-      .then(
-        contract => {
-          console.log(contract) // contract
+      .then((contract) => {
+        if (!contract) return
 
-          if (contract) {
-            alert('The escrow was successfully created.')
+        alert('The escrow was successfully created.')
 
-            this.setState({
-              isShow: false,
-              startAddress: '',
-              buyerValue: '',
-            })
-          }
-        }, (err) => {
-          err && console.error(err)
+        this.setState({
+          isShow: false,
+          startAddress: '',
+          buyerValue: '',
+        }, () => {
+          setTimeout(() => {
+            getWeb3()
+              .then((instance) => instance.eth.getBalance(this.props.address))
+              .then((balance) => this.props.setBalance(weiToEther(balance)))
+          }, loadingTime)
         })
+      })
+      .catch(console.error)
   }
 
   handleLogout = () => {
@@ -127,8 +117,8 @@ class Header extends Component {
   }
 
   render() {
-    const {isShow, startAddress, searchAddress, buyerValue} = this.state
-    const {address} = this.props
+    const { isShow, startAddress, searchAddress, buyerValue } = this.state
+    const { address } = this.props
 
     return (
       <Fragment>
@@ -167,7 +157,7 @@ class Header extends Component {
           </div>
           <Container>
             <div className="header--bottom">
-              {this.props.balance && <Balance balance={this.props.balance} />}
+              <BalanceContainer />
               <div className="header--action">
                 <div className="header--intro">
                   <div className="intro-body">
@@ -176,17 +166,17 @@ class Header extends Component {
                     recommend the Metamask chrome extension.
                   </div>
                 </div>
-                <button className="btn" onClick={this.handleModal(true)}>
-                  Start Deal
-                </button>
+                <button className="btn" onClick={this.handleModal(true)}>Create Escrow</button>
               </div>
             </div>
-          </Container>
-        </div>
-        <Modal isShow={isShow} hideModal={this.handleModal(false)}>
-          <h3>Create New Escrow</h3>
+	        </Container>
+	      </div>
+	      <Modal isShow={isShow} hideModal={this.handleModal(false)} showBtns={true} confirmFunc={this.createEscrow}>
+	        <h3>Create New Escrow</h3>
 
-          <label htmlFor="buyerAddress">Seller Address</label>
+          <label htmlFor="buyerAddress">
+            Seller Address
+          </label>
           <input
             type="text"
             id="buyerAddress"
@@ -204,18 +194,9 @@ class Header extends Component {
           />
 
           <hr />
-
-          <div className="header__buttons">
-            <button className="button" onClick={this.handleModal(false)}>
-              Cancel
-            </button>
-            <button className="button" onClick={this.createEscrow}>
-              Confirm
-            </button>
-          </div>
-        </Modal>
-      </Fragment>
-    )
+	      </Modal>
+	    </Fragment>
+		)
   }
 }
 

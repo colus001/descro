@@ -6,6 +6,7 @@ const STATUS = {
   CANCELLED: 4,
   COMPLETED: 5,
   REFUNDED: 6,
+  IN_DISPUTE: 7,
 }
 
 module.exports = {

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { addDays } from 'date-fns'
 
+import Badge from '../components/Badge'
+import User from '../components/User'
+
 import { formatDate, formatStatus } from '../utils/formatters'
 import history from '../history'
 
@@ -19,10 +22,11 @@ class Activity extends Component {
         <thead>
           <tr>
             <th>#</th>
-            <th>Date</th>
+            <th>Created At</th>
+            <th>Deposit</th>
             <th>Status</th>
+            <th>Expired At</th>
             <th>Detail</th>
-            <th>Balance</th>
           </tr>
         </thead>
         <tbody>
@@ -30,9 +34,11 @@ class Activity extends Component {
             <tr className="Activity__link" key={escrow.id} onClick={this.onClickRow(escrow.id)}>
               <td>{escrow.id}</td>
               <td>{formatDate(escrow.createdAt)}</td>
-              <td>{formatStatus(escrow.status)}</td>
+              <td>{escrow.balance} ETH</td>
+              <td><Badge status={escrow.status} showIcon /></td>
+              <td>{formatDate(addDays(escrow.createdAt, 14))}</td>
               <td>
-                <td className="Activity__td">
+                {/* <td className="Activity__td">
                   <strong>Buyer</strong> {escrow.buyer}
                 </td>
                 <td className="Activity__td">
@@ -42,7 +48,17 @@ class Activity extends Component {
                   <strong>Expired</strong> {formatDate(addDays(escrow.createdAt, 14))}
                 </td>
               </td>
-              <td>{escrow.balance} ETH</td>
+              <td>{escrow.balance} ETH</td> */}
+                <User type="buyer" hideText />
+                {' '}
+                {escrow.buyer}
+                <br />
+
+                <User type="seller" hideText />
+                {' '}
+                {escrow.seller}
+                <br />
+              </td>
             </tr>
           ))}
         </tbody>

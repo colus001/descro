@@ -18,6 +18,7 @@ contract Escrows is Pausible {
   uint8 constant CANCELLED = 4;
   uint8 constant COMPLETED = 5;
   uint8 constant REFUNDED = 6;
+  uint8 constant IN_DISPUTE = 7;
 
   struct Escrow {
     uint createdAt;
@@ -37,6 +38,7 @@ contract Escrows is Pausible {
   event LogEscrow(uint escrowId, address buyer, address seller, uint balance, uint8 status);
   event LogDepositEscrow(uint escrowId, address buyer, address seller, uint balance);
   event LogCompleteEscrow(uint escrowId, address buyer, address seller, uint balance);
+  event LogDisputeEscrow(uint escrowId, address buyer, address seller, uint balance);
 
   function logEscrow(uint _id, Escrow _escrow) internal {
     emit LogEscrow(_id, _escrow.buyer, _escrow.seller, _escrow.balance, _escrow.status);
@@ -45,6 +47,8 @@ contract Escrows is Pausible {
       emit LogDepositEscrow(_id, _escrow.buyer, _escrow.seller, _escrow.balance);
     } else if (_escrow.status == COMPLETED) {
       emit LogCompleteEscrow(_id, _escrow.buyer, _escrow.seller, _escrow.balance);
+    } else if (_escrow.status == IN_DISPUTE) {
+      emit LogDisputeEscrow(_id, _escrow.buyer, _escrow.seller, _escrow.balance);
     }
   }
 

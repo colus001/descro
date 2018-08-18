@@ -36,6 +36,9 @@ class Footer extends Component {
                 데스크로를 만들기 위해 양양에서 대(동)강과 대동단결
               </p>
             </div>
+            <div className="Footer__container">
+      Made with <i className="far fa-kiss-wink-heart" /> and <i className="fas fa-swimmer" />
+    </div>
           </div>
         </div>
       </div>

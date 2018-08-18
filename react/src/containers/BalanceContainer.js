@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 
-import Header from '../components/Header'
+import Balance from '../components/Balance'
 
 import { setBalance, clearWallet } from '../state/actions/wallet'
 
 const mapStateToProps = (state) => ({
-  contract: state.contract,
   address: state.wallet.address,
+  balance: state.wallet.balance,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Header)
+)(Balance)

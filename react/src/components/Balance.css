@@ -1,0 +1,35 @@
+.Balance {
+	text-align: left;
+}
+
+.Balance__sync {
+  float: right;
+  cursor: pointer;
+}
+
+.Balance__name {
+	opacity: .7;
+}
+
+.Balance__loading {
+	margin-top: 1.7rem;
+}
+
+.Balance__value {
+	min-width: 30rem;
+	min-height: 7rem;
+}
+
+.Balance__value--loading {
+	text-align: center;
+}
+
+.Balance__value--val {
+	font-size: 2.5em;
+}
+
+.Balance__value--unit {
+	font-size: 1.5em;
+	opacity: .8;
+	margin-left: 10px;
+}

@@ -17,6 +17,11 @@
   text-align: left;
 }
 
+.Detail__content .button,
+.Detail__content button {
+  margin-right: 1rem;
+}
+
 .Detail__content table {
   display: flex;
 }
@@ -25,6 +30,10 @@
 .Detail__content td {
   display: flex;
   flex-direction: column;
+}
+
+.Detail__content td:first-child {
+  padding-left: 1.5rem;
 }
 
 .Detail__content tr:first-child,
