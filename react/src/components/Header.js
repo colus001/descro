@@ -4,10 +4,10 @@ import { validate } from 'wallet-address-validator'
 
 import Container from './Container'
 import Modal from './Modal'
-import Balance from './Balance'
+import BalanceContainer from '../containers/BalanceContainer'
 
 import history from '../history'
-import { getWeb3, weiToEther, etherToWei } from '../utils/ethereum'
+import { etherToWei } from '../utils/ethereum'
 
 import './Header.css'
 
@@ -17,20 +17,6 @@ class Header extends Component {
     searchAddress: '',
     startAddress: '',
     buyerValue: ''
-  }
-
-  componentDidMount() {
-  }
-
-  componentDidUpdate(prevProps) {
-    const { address } = this.props
-    if (!address || address === prevProps.address) {
-      return
-    }
-
-    getWeb3()
-      .then((instance) => instance.eth.getBalance(address))
-      .then((balance) => this.props.setBalance(weiToEther(balance)))
   }
 
   handleModal = (show) => () => {
@@ -72,7 +58,7 @@ class Header extends Component {
       pathname: '/escrows',
       id: searchAddress,
     })
-    
+
     this.setState({
       searchAddress: ''
     })
@@ -105,20 +91,17 @@ class Header extends Component {
       .createNewEscrow
       .sendTransaction(startAddress, { from: this.props.address, value: etherToWei(buyerValue) })
       .then((contract) => {
-        console.log(contract); // contract
+        if (!contract) return
 
-        if (contract) {
-          alert('The escrow was successfully created.')
-          
-          this.setState({
-            isShow: false,
-            startAddress: '',
-            buyerValue: '',
-          })
-        }
-      }, (err) => {
-        err && console.error(err)
+        alert('The escrow was successfully created.')
+
+        this.setState({
+          isShow: false,
+          startAddress: '',
+          buyerValue: '',
+        })
       })
+      .catch(console.error)
   }
 
   handleLogout = () => {
@@ -161,9 +144,7 @@ class Header extends Component {
 							</div>
 	          </div>
 	          <div className="header--bottom">
-              {this.props.balance && (
-                <Balance balance={this.props.balance} />
-              )}
+              <BalanceContainer />
               <div className="header--action">
                 <div className="header--intro">
                   <div className="intro-title">DESCRO</div>
