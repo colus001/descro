@@ -49,6 +49,12 @@ class Header extends Component {
     this.setState({[name]: e.target.value})
   }
 
+  handelKeyupSearch = (e) => {
+    if (/Enter/.test(e.key)) {
+      this.handleSearch()
+    }
+  }
+
   handleSearch = () => {
     const { searchAddress } = this.state
 
@@ -138,9 +144,10 @@ class Header extends Component {
 									className='header--search-input'
 									placeholder="Search for a escrow by address"
 									value={searchAddress}
-									onChange={this.handleChangeInput('searchAddress')}
+                  onChange={this.handleChangeInput('searchAddress')}
+                  onKeyPress={this.handelKeyupSearch}
 								/>
-                <button className='btn' onClick={this.handleSearch}>Search</button>
+                <i className="fas fa-search header--search-icon" onClick={this.handleSearch} />
 	            </div>
 							<div className="header--address">
 								{this.props.address ? (
