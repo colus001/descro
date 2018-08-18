@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
     "classnames": "^2.2.6",
     "date-fns": "^1.29.0",
     "history": "^4.7.2",
@@ -15,6 +16,7 @@
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "truffle-contract": "^3.0.6",
+    "wallet-address-validator": "^0.1.7",
     "web3": "^1.0.0-beta.34"
   },
   "scripts": {
