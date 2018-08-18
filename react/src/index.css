@@ -36,3 +36,6 @@ h3 {
   font-size: 3rem;
   letter-spacing: 0.6px;
 }
+
+
+*:not(i) { font-family: Lato!important; }
