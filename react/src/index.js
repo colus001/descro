@@ -9,8 +9,10 @@ import rootReducer from './state/reducers'
 
 import './index.css'
 
+export const store = configureStore(rootReducer)
+
 ReactDOM.render(
-  <Provider store={configureStore(rootReducer)}>
+  <Provider store={store}>
     <Root />
   </Provider>,
   document.getElementById('root')

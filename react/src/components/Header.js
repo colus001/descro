@@ -120,7 +120,7 @@ class Header extends Component {
 							<div className="header--address">
 								{this.props.address ? (
 									<Fragment>
-										<button>My Account</button>
+										<Link to="/escrows"><button>My Account</button></Link>
 										<button onClick={this.handleLogout}>Logout</button>
 									</Fragment>
 								) : (

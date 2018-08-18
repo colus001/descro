@@ -27,36 +27,33 @@ class Activity extends Component {
   }
 
   render() {
-    const escrows = DUMMY
+    const escrows = this.props.escrows || DUMMY
 
     return (
-      <div>
-        <h2>Activity</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Contract</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Description</th>
-              <th>Balance</th>
-              <th>Fee</th>
+      <table>
+        <thead>
+          <tr>
+            <th>Contract #</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Description</th>
+            <th>Balance</th>
+            <th>Fee</th>
+          </tr>
+        </thead>
+        <tbody>
+          {escrows.map((escrow) => (
+            <tr className="Activity__link" key={escrow.id} onClick={this.onClickRow(escrow.id)}>
+              <td>{escrow.id}</td>
+              <td>{formatDate(escrow.createdAt)}</td>
+              <td>{formatStatus(escrow.status)}</td>
+              <td>{escrow.description}</td>
+              <td>{escrow.balance}</td>
+              <td>{escrow.fee}</td>
             </tr>
-          </thead>
-          <tbody>
-            {escrows.map((escrow) => (
-              <tr className="Activity__link" key={escrow.id} onClick={this.onClickRow(escrow.id)}>
-                <td>{escrow.id}</td>
-                <td>{formatDate(escrow.createdAt)}</td>
-                <td>{formatStatus(escrow.status)}</td>
-                <td>{escrow.description}</td>
-                <td>{escrow.balance}</td>
-                <td>{escrow.fee}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     )
   }
 }
