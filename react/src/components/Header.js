@@ -20,12 +20,6 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props);
-    // this.props.contract.getBalanceByEscrowId.call(0, {
-    //   from: fromAccount,
-    //   gas: gasLimit,
-    //   gasPrice: gasPriceInWei
-    // });
   }
 
   componentDidUpdate(prevProps) {
@@ -55,6 +49,30 @@ class Header extends Component {
     this.setState({[name]: e.target.value})
   }
 
+  handleSearch = () => {
+    const { searchAddress } = this.state
+
+    if (!searchAddress || searchAddress.length === 0) {
+      alert('You are not ready to search!')
+      return
+    }
+
+    if (!validate(searchAddress, 'ETH')) {
+      alert('You have entered wrong ethereum address')
+      return
+    }
+
+    this.props.contract.getEscrowsByBuyer.call(searchAddress)
+      .then((result) => {
+        console.log(result);
+      })
+
+    this.props.contract.getEscrowsBySeller.call(searchAddress)
+      .then((result) => {
+        console.log(result);
+      })
+  }
+
   createEscrow = () => {
     const {startAddress, buyerValue} = this.state;
 
@@ -81,11 +99,17 @@ class Header extends Component {
     this.props.contract
       .createNewEscrow
       .sendTransaction(startAddress, { from: this.props.address, value: etherToWei(buyerValue) })
-      .then((result) => {
-        console.log(result);
-        if (result) {
+      .then((contract) => {
+        console.log(contract); // contract
+
+        if (contract) {
           alert('The escrow was successfully created.')
-          this.handleModal(false)();
+          
+          this.setState({
+            isShow: false,
+            startAddress: '',
+            buyerValue: '',
+          })
         }
       }, (err) => {
         err && console.error(err)
@@ -112,10 +136,11 @@ class Header extends Component {
 	              <input
 									type="text"
 									className='header--search-input'
-									placeholder="Search for a deal"
+									placeholder="Search for a escrow by address"
 									value={searchAddress}
 									onChange={this.handleChangeInput('searchAddress')}
 								/>
+                <button className='btn' onClick={this.handleSearch}>Search</button>
 	            </div>
 							<div className="header--address">
 								{this.props.address ? (
