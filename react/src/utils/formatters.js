@@ -6,7 +6,7 @@ export const formatDate = (date) => {
   return format(dateObject, 'YYYY-MM-DD HH:mm')
 }
 
-const STATUS = map({
+export const STATUS = {
   CREATED: 0,
   DEPOSITED: 1,
   PRODUCT_SENT: 2,
@@ -15,6 +15,8 @@ const STATUS = map({
   COMPLETED: 5,
   REFUNDED: 6,
   IN_DISPUTE: 7,
-}, (index, key) => ({ index, status: key }))
+}
 
-export const formatStatus = (status) => STATUS[status] && STATUS[status].status
+const stats = map(STATUS, (index, key) => ({ index, status: key }))
+
+export const formatStatus = (status) => stats[status] && stats[status].status
