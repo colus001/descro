@@ -63,6 +63,11 @@
   font-weight: 700;
 }
 
+.header--logoImage {
+  margin-top: 1rem;
+  height: 3.2rem;
+}
+
 .intro-title {
   font-size: 2em;
 }

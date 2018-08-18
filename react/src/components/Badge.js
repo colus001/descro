@@ -31,7 +31,7 @@ const Badge = ({ status, showIcon }) => (
   <div
     title={formatStatus(status)}
     className={classNames('Badge', {
-      [`Badge--${formatStatus(status).toLowerCase()}`]: !!status,
+      [`Badge--${formatStatus(status) && formatStatus(status).toLowerCase()}`]: !!status,
     })}
   >
     {showIcon && (

@@ -11,6 +11,8 @@ import history from '../history'
 import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
 import { loadingTime } from '../settings'
 
+import Logo from '../static/logo.svg'
+
 import './Header.css'
 
 class Header extends Component {
@@ -125,7 +127,7 @@ class Header extends Component {
         <div className="header">
           <div className="header--top">
             <Link to="/" className="header--logo">
-              DESCRO
+              <img className="header--logoImage" src={Logo} />
             </Link>
             <div className="header--search">
               <input

@@ -48,9 +48,6 @@ class Activity extends Component {
                   {' '}
                   {escrow.seller}
                 </td>
-                <td className="Activity__td">
-                  <strong>Expired</strong> {formatDate(addDays(escrow.createdAt, 14))}
-                </td>
               </td>
             </tr>
           ))}

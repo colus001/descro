@@ -4,6 +4,8 @@ import { formatDate, formatStatus, STATUS } from '../utils/formatters'
 import { loadingTime } from '../settings'
 import { parseContract } from './EscrowList'
 import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
+
+import Badge from '../components/Badge'
 import Modal from './Modal'
 import Loading from './Loading'
 import history from '../history'
@@ -60,7 +62,7 @@ class Detail extends Component {
 
   componentDidMount() {
     const { match } = this.props
-    
+
     if (!match.params.id) {
       history.push('/')
       return
@@ -110,7 +112,7 @@ class Detail extends Component {
             alert('Please insert only number')
             return
           }
-          
+
           this.contractFunc('deposit', {value: etherToWei(balanceValue)})
         }
         break
@@ -167,10 +169,10 @@ class Detail extends Component {
     return (
       <Fragment>
         {isLoading && <div className='modal-bg'><Loading /></div>}
-        <Modal 
+        <Modal
           isShow={showModal}
-          showBtns={true} 
-          hideModal={() => this.handleModal(false)} 
+          showBtns={true}
+          hideModal={() => this.handleModal(false)}
           confirmFunc={this.handleModalConfirm}
           cancelFunc={() => this.handleModal(false)}
         >
@@ -217,7 +219,7 @@ class Detail extends Component {
                       <td>{formatDate(escrow.createdAt)}</td>
                       <td>{escrow.buyer}</td>
                       <td>{escrow.seller}</td>
-                      <td>{formatStatus(escrow.status)}</td>
+                      <td><div><Badge status={escrow.status} showIcon /></div></td>
                       <td>{escrow.balance} ether</td>
                     </tr>
                   </tbody>
@@ -228,7 +230,7 @@ class Detail extends Component {
                     let show = true
                     action.show === 'seller' && (show = isSeller)
                     action.show === 'buyer' && (show = isBuyer)
-                    
+
                     return (action.status === escrow.status) && show ? (
                       <button
                         key={action.name}
