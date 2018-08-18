@@ -33,6 +33,10 @@
   padding-right: 30px !important;
 }
 
+.header--search-input:focus {
+  border-color: #fff !important;
+}
+
 .header--search-icon {
   position: absolute;
   right: 10px;
