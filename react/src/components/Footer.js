@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Logo from './Logo'
+
 import './Footer.css'
 
 class Footer extends Component {
@@ -8,7 +10,7 @@ class Footer extends Component {
       <div className="Footer">
         <div className="container">
           <div className="Footer__group">
-            <h3 className="Footer__title">DESCRO</h3>
+            <Logo className="Footer__title" />
             <div className="group">
               <h3 className="title">contributors</h3>
               <a target="_blank" href="https://github.com/colus001">

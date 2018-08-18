@@ -5,13 +5,12 @@ import { validate } from 'wallet-address-validator'
 import Container from './Container'
 import Modal from './Modal'
 import Loading from './Loading'
+import Logo from './Logo'
 import BalanceContainer from '../containers/BalanceContainer'
 
 import history from '../history'
 import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
 import { loadingTime } from '../settings'
-
-import Logo from '../static/logo.svg'
 
 import './Header.css'
 
@@ -126,9 +125,7 @@ class Header extends Component {
       <Fragment>
         <div className="header">
           <div className="header--top">
-            <Link to="/" className="header--logo">
-              <img className="header--logoImage" src={Logo} />
-            </Link>
+            <Logo className="header--logo" />
             <div className="header--search">
               <input
                 type="text"
