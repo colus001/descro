@@ -4,6 +4,7 @@
   padding: .2rem .8rem 0;
   height: 2.4rem;
   border-radius: 1.2rem;
+  line-height: 2rem;
 }
 
 .Badge--created,

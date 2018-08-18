@@ -1,3 +1,7 @@
+.Detail__title {
+  margin-bottom: 1rem;
+}
+
 .Detail__item {
   display: flex;
   justify-content: space-between;
@@ -5,6 +9,43 @@
   line-height: 3;
   font-size: 18px;
   letter-spacing: 0.3px;
+}
+
+.Detail__action-wrap {
+  display: flex;
+  flex-direction: row !important;
+}
+
+.Detail__action {
+  max-width: 120px;
+  margin-bottom: 0 !important;
+}
+
+.Detail__icon-refresh {
+  font-size: 20px;
+  margin-left: 14px;
+  cursor: pointer;
+}
+
+.Detail__type-wrap {
+  flex-direction: row !important;
+}
+
+.Detail__type-wrap .User {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+.Detail__type-wrap > span {
+  margin-left: 1rem;
+  color: white;
+  background-color: #9e9e9e;
+  font-size: 1.2rem;
+  display: inline-block;
+  padding: .2rem .8rem 0;
+  height: 2.4rem;
+  border-radius: 1.2rem;
+  line-height: 2rem;
 }
 
 .Detail__item-title {
@@ -24,6 +65,19 @@
 
 .Detail__content table {
   display: flex;
+}
+
+.Detail__content table thead th:nth-last-child(1),
+.Detail__content table tbody td:nth-last-child(1) {
+  border-bottom: 0;
+}
+
+.Detail__content table thead {
+  width: 20%;
+}
+
+.Detail__content table tbody {
+  width: 80%;
 }
 
 .Detail__content tr,

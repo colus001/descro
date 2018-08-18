@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { addDays } from 'date-fns'
 
-import { formatDate, formatStatus, STATUS } from '../utils/formatters'
+import { formatDate, STATUS } from '../utils/formatters'
 import { loadingTime } from '../settings'
 import { parseContract } from './EscrowList'
 import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
@@ -193,11 +193,7 @@ class Detail extends Component {
         <div className="Detail container">
           {escrow && (
             <Fragment>
-              <h2>
-                <i className="fas fa-sync Balance__sync" onClick={() => this.getDetailData()} />
-                Contract #{id}
-              </h2>
-              <br />
+              <h3 className="Detail__title">Contract #{id}</h3>
               <div className="Detail__content">
                 <table>
                   <thead>
@@ -209,6 +205,7 @@ class Detail extends Component {
                       <th>Expired At</th>
                       <th>Buyer</th>
                       <th>Seller</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -218,28 +215,29 @@ class Detail extends Component {
                       <td>{escrow.balance} ETH</td>
                       <td><div><Badge status={escrow.status} showIcon /></div></td>
                       <td>{formatDate(addDays(escrow.createdAt, 14))}</td>
-                      <td>{escrow.buyer}</td>
-                      <td>{escrow.seller}</td>
+                      <td className="Detail__type-wrap"><User type='buyer' hideText={true} />{escrow.buyer}{isBuyer && <span>YOU</span>}</td>
+                      <td className="Detail__type-wrap"><User type='seller' hideText={true} />{escrow.seller}{isSeller && <span>YOU</span>}</td>
+                      <td className="Detail__action-wrap">
+                      {
+                        ActionTypes.map(action => {
+                          let show = true
+                          action.show === 'seller' && (show = isSeller)
+                          action.show === 'buyer' && (show = isBuyer)
+
+                          return (action.status === escrow.status) && show ? (
+                            <button
+                              key={action.name}
+                              className="button button-outline Detail__action"
+                              onClick={this.handleContractAction(action.name)}
+                            >
+                              {action.name}
+                            </button>
+                          ) : ''})
+                      }
+                      </td>
                     </tr>
                   </tbody>
                 </table>
-
-                {
-                  ActionTypes.map(action => {
-                    let show = true
-                    action.show === 'seller' && (show = isSeller)
-                    action.show === 'buyer' && (show = isBuyer)
-
-                    return (action.status === escrow.status) && show ? (
-                      <button
-                        key={action.name}
-                        className="button button-outline"
-                        onClick={this.handleContractAction(action.name)}
-                      >
-                        {action.name}
-                      </button>
-                    ) : ''})
-                }
               </div>
             </Fragment>
           )}
