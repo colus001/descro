@@ -17,6 +17,6 @@ export const STATUS = {
   IN_DISPUTE: 7,
 }
 
-const STATUS = map(STATUS, (index, key) => ({ index, status: key }))
+const stats = map(STATUS, (index, key) => ({ index, status: key }))
 
-export const formatStatus = (status) => STATUS[status] && STATUS[status].status
+export const formatStatus = (status) => stats[status] && stats[status].status
