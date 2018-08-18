@@ -1,5 +1,7 @@
-import React, { Fragment, Component } from 'react';
-import './Modal.css';
+import React, { Fragment, Component } from 'react'
+import classNames from 'classnames'
+
+import './Modal.css'
 
 class Modal extends Component {
 	componentWillReceiveProps(nextProps) {
@@ -9,19 +11,19 @@ class Modal extends Component {
 	}
 
 	showModal = () => {
-		this.props.showModal && this.props.showModal();
+		this.props.showModal && this.props.showModal()
 	}
 
 	hideModal = () => {
-		this.props.hideModal && this.props.hideModal();
+		this.props.hideModal && this.props.hideModal()
 	}
 
 	render() {
-		const { children, isShow, wrapperClass } = this.props;
+		const { children, isShow, wrapperClass } = this.props
 
 		return isShow && (
 			<Fragment>
-				<div className={wrapperClass ? `modal ${wrapperClass}` : "modal"}>
+				<div className={classNames('modal', wrapperClass)}>
 					{children}
 				</div>
 				<div className="modal-bg" onClick={this.hideModal} />
@@ -30,4 +32,4 @@ class Modal extends Component {
 	}
 }
 
-export default Modal;
+export default Modal
