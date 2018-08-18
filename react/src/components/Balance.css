@@ -1,10 +1,16 @@
 .Balance {
 	text-align: left;
+	color: #333;
 }
 
 .Balance__sync {
   float: right;
-  cursor: pointer;
+	cursor: pointer;
+	transition: all 0.1s ease-in;
+}
+
+.Balance__sync:hover {
+	transform: scale(1.1)
 }
 
 .Balance__name {
@@ -26,6 +32,7 @@
 
 .Balance__value--val {
 	font-size: 2.5em;
+	font-weight: 500;
 }
 
 .Balance__value--unit {

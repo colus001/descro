@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 
 import { formatDate, formatStatus, STATUS } from '../utils/formatters'
+import { loadingTime } from '../settings'
 import { parseContract } from './EscrowList'
 import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
 import Modal from './Modal'
@@ -97,7 +98,21 @@ class Detail extends Component {
     switch (actionName) {
       case 'deposit':
         this.handleModal(true)
-        this.handleModalConfirm = () => this.contractFunc('deposit', {value: etherToWei(this.state.balanceValue)})
+        this.handleModalConfirm = () => {
+          const { balanceValue } = this.state
+
+          if (!balanceValue) {
+            alert('Balance is required')
+            return
+          }
+
+          if (!/^[0-9.]+$/.test(balanceValue)) {
+            alert('Please insert only number')
+            return
+          }
+          
+          this.contractFunc('deposit', {value: etherToWei(balanceValue)})
+        }
         break
       case 'send product':
         this.contractFunc('sendProduct')
@@ -125,7 +140,7 @@ class Detail extends Component {
         this.setState({ isLoading: true })
         setTimeout(() => {
           this.getDetailData(true)
-        }, 7000)
+        }, loadingTime)
       })
       .catch(console.error)
   }

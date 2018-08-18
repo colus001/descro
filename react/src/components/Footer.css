@@ -1,5 +1,33 @@
 .Footer {
-  background-color: #ebebeb;
+  background: #333;
+  padding: 4rem 0;
+  color: #9a9a9a;
+  margin-top: 10rem;
+  font-size: 1.4rem;
+}
+
+.Footer__title {
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 2rem;
+}
+
+.title {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+  margin-top: 2rem;
+}
+
+.Footer__group {
+  max-width: 500px;
+  word-break: keep-all;
+}
+
+.group a {
+  color: #9a9a9a;
+  margin-right: 1rem;
+  /* background-color: #ebebeb; */
 }
 
 .Footer__container {

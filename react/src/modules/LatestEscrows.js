@@ -25,7 +25,7 @@ class LatestEscrows extends Component {
   render() {
     return (
       <div>
-        <h3>Latest Activity at descro</h3>
+        <h3>Latest Activity</h3>
         <Activity escrows={this.state.escrows} />
       </div>
     )

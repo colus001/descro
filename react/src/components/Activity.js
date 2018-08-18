@@ -18,7 +18,7 @@ class Activity extends Component {
     const { escrows } = this.props
 
     return (
-      <table>
+      <table className="Activity">
         <thead>
           <tr>
             <th>#</th>
@@ -38,15 +38,19 @@ class Activity extends Component {
               <td><Badge status={escrow.status} showIcon /></td>
               <td>{formatDate(addDays(escrow.createdAt, 14))}</td>
               <td>
-                <User type="buyer" hideText />
-                {' '}
-                {escrow.buyer}
-                <br />
-
-                <User type="seller" hideText />
-                {' '}
-                {escrow.seller}
-                <br />
+                <td className="Activity__td">
+                  <User type="buyer" hideText />
+                  {' '}
+                  {escrow.buyer}
+                </td>
+                <td className="Activity__td">
+                  <User type="seller" hideText />
+                  {' '}
+                  {escrow.seller}
+                </td>
+                <td className="Activity__td">
+                  <strong>Expired</strong> {formatDate(addDays(escrow.createdAt, 14))}
+                </td>
               </td>
             </tr>
           ))}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route } from "react-router-dom"
+import { Switch, Route } from 'react-router-dom'
 
 import EscrowListContainer from '../containers/EscrowListContainer'
 import DetailContainer from '../containers/DetailContainer'
@@ -11,7 +11,7 @@ import './Content.css'
 class Content extends Component {
 	render() {
 		return (
-			<div className="Content">
+			<div className="Content container">
 				<Switch>
 					<Route exact path="/" component={Welcome}/>
 					<Route path="/activity" component={LatestEscrows}/>
