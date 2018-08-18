@@ -19,7 +19,7 @@ class Footer extends Component {
                 Sunghyun
                 <span>🐱</span>
               </a>
-              <a target="_blank" href="https://github.com/">
+              <a target="_blank" href="https://github.com/cnaa97">
                 Junho
                 <span>🍺</span>
               </a>
