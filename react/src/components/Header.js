@@ -168,7 +168,7 @@ class Header extends Component {
                     recommend the Metamask chrome extension.
                   </div>
                 </div>
-                <button className="btn" onClick={this.handleModal(true)}>Create Escrow</button>
+                <button className="header--introButton" onClick={this.handleModal(true)}>Create Escrow</button>
               </div>
             </div>
 	        </Container>

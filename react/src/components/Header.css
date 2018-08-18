@@ -57,6 +57,15 @@
   color: #333;
 }
 
+.header--introButton {
+  background-color: white;
+  color: #333;
+  border-color: transparent;
+}
+
+.header--introButton:hover {
+}
+
 .header--logo {
   font-size: 20px;
   color: #f9f9f9 !important;
