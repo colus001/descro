@@ -195,8 +195,7 @@ class Detail extends Component {
             <Fragment>
               <h2>
                 <i className="fas fa-sync Balance__sync" onClick={() => this.getDetailData()} />
-                {isBuyer && <div>BUYER <i className="fas fa-wallet" /></div>}
-                {isSeller && <div>SELLER<i className="fas fa-suitcase-rolling" /></div>}
+                Contract #{id}
               </h2>
               <br />
               <div className="Detail__content">
