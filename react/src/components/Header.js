@@ -67,7 +67,7 @@ class Header extends Component {
   }
 
   createEscrow = () => {
-    const {startAddress, buyerValue} = this.state;
+    const {startAddress, buyerValue} = this.state
 
     if (!startAddress || startAddress.length === 0) {
       alert('You are not ready to start!')
@@ -89,8 +89,7 @@ class Header extends Component {
       return
     }
 
-    this.props.contract
-      .createNewEscrow
+    this.props.contract.createNewEscrow
       .sendTransaction(startAddress, { from: this.props.address, value: etherToWei(buyerValue) })
       .then((contract) => {
         if (!contract) return
@@ -122,41 +121,50 @@ class Header extends Component {
     const { address } = this.props
 
     return (
-			<Fragment>
-	      <div className="header">
-	        <Container>
-	          <div className="header--top">
-	            <Link to="/" className="header--logo">
-								DESCRO
-							</Link>
-	            <div className="header--search">
-	              <input
-									type="text"
-									className='header--search-input'
-									placeholder="Search for a escrow by address"
-									value={searchAddress}
-                  onChange={this.handleChangeInput('searchAddress')}
-                  onKeyPress={this.handelKeyupSearch}
-								/>
-                <i className="fas fa-search header--search-icon" onClick={this.handleSearch} />
-	            </div>
-							<div className="header--address">
-								{this.props.address ? (
-									<Fragment>
-										<Link to={{ pathname: '/escrows', id: address }}><button>My Account</button></Link>
-										<button onClick={this.handleLogout}>Logout</button>
-									</Fragment>
-								) : (
-									<Link to="/">Login</Link>
-								)}
-							</div>
-	          </div>
-	          <div className="header--bottom">
+      <Fragment>
+        <div className="header">
+          <div className="header--top">
+            <Link to="/" className="header--logo">
+              DESCRO
+            </Link>
+            <div className="header--search">
+              <input
+                type="text"
+                className="header--search-input"
+                placeholder="Search for a escrow by address"
+                value={searchAddress}
+                onChange={this.handleChangeInput('searchAddress')}
+                onKeyPress={this.handelKeyupSearch}
+              />
+              <i className="fas fa-search header--search-icon" onClick={this.handleSearch} />
+            </div>
+            <div className="header--address">
+              {this.props.address ? (
+                <Fragment>
+                  <Link to={{ pathname: '/escrows', id: address }}>
+                    <button className="button button-clear">My Account</button>
+                  </Link>
+                  <button className="button button-clear" onClick={this.handleLogout}>
+                    Logout
+                  </button>
+                </Fragment>
+              ) : (
+                <Link to="/">
+                  <button className="button button-clear">Login</button>
+                </Link>
+              )}
+            </div>
+          </div>
+          <Container>
+            <div className="header--bottom">
               <BalanceContainer />
               <div className="header--action">
                 <div className="header--intro">
-                  <div className="intro-title">DESCRO</div>
-                  <div className="intro-body">Decentralized Escrow for Ethereum</div>
+                  <div className="intro-body">
+                    Decentralized Escrow for Ethereum. Send and Receive Ether with Escrow
+                    Protection. To use Descro, connection to an Ethereum node is required. We
+                    recommend the Metamask chrome extension.
+                  </div>
                 </div>
                 <button className="btn" onClick={this.handleModal(true)}>Create Escrow</button>
               </div>
@@ -176,9 +184,7 @@ class Header extends Component {
             value={startAddress}
             onChange={this.handleChangeInput('startAddress')}
           />
-          <label htmlFor="buyerValue">
-            Amount
-          </label>
+          <label htmlFor="buyerValue">Amount</label>
           <input
             type="text"
             id="buyerValue"
