@@ -2,29 +2,76 @@ import React, { Component, Fragment } from 'react'
 
 import { formatDate, formatStatus } from '../utils/formatters'
 
-// import { getContracts, parseContract } from './EscrowList'
+import { parseContract } from './EscrowList'
+import history from '../history'
 import './Detail.css'
 
-const ActionTypes = ['deposit', 'send product', 'approve', 'cancel', 'withdraw', 'refund']
-
-const DUMMY = {
-  id: 1,
-  createdAt: new Date(),
-  status: 1,
-  balance: 1,
-  buyer: '0x53edeaae2583767e76d245b0249d90ecbdd1aa94',
-  seller: '0x4f46df0df83f53b6678b88aa3e896a48100afdee',
-}
+const ActionTypes = [
+  {
+    name: 'deposit',
+    status: 1, // DEPOSITED
+    show: 'all',
+    payable: true,
+  },
+  {
+    name: 'send product',
+    status: 1, // DEPOSITED
+    show: 'seller',
+    payable: false,
+  },
+  {
+    name: 'approve',
+    status: 2, // PRODUCT_SENT
+    show: 'buyer',
+    payable: false,
+  },
+  {
+    name: 'cancel',
+    status: 2, // PRODUCT_SENT
+    show: 'all',
+    payable: false,
+  },
+  {
+    name: 'withdraw',
+    status: 3, // APPROVED
+    show: 'seller',
+    payable: false,
+  },
+  {
+    name: 'refund',
+    status: 3, // APPROVED
+    show: 'buyer',
+    payable: false,
+  },
+]
 
 class Detail extends Component {
   state = {
     id: '',
+    escrow: {}
   }
 
   componentDidMount() {
-    const { address, contract } = this.props
-    this.setState({ id: this.props.match.params.id })
+    const { address, match } = this.props
+    
+    if (!match.params.id) {
+      history.push('/')
+      return
+    }
+
+    this.getDetailData(match.params.id)
     this.getIdentity(address)
+  }
+
+  getDetailData(id) {
+    const { contract } = this.props
+
+    contract && contract.escrows && contract.escrows.call(id).then(escrow => {
+      this.setState({
+        id,
+        escrow: parseContract(escrow)
+      })
+    })
   }
 
   getIdentity = address => {
@@ -33,19 +80,36 @@ class Detail extends Component {
     // not match -> no body
   }
 
-  handleClick = action => {
+  handleClick = action => () => {
     // action에 따른 action
+
+    // const { contract } = this.props
+    // switch (action) {
+    //   case 'deposit':
+    //     this.props.contract
+    //       .createNewEscrow
+    //       .sendTransaction(startAddress, { from: this.props.address, value: etherToWei(buyerValue) })
+    //       .then((result) => {
+            
+    //       }, (err) => {
+    //         err && console.error(err)
+    //       })    
+    //     break
+    // }
   }
 
   render() {
-    const escrow = this.props.escrows || DUMMY
+    const { escrow, id } = this.state
+    const { address } = this.props
+    const isBuyer = escrow.buyer && new RegExp(address, 'i').test(escrow.buyer)
+    const isSeller = escrow.seller && new RegExp(address, 'i').test(escrow.seller)
 
     return (
       <div className="Detail container">
         {escrow && (
           <Fragment>
             <h2>
-              Escrow Detail <small>{this.state.id}</small>
+              Escrow Detail <small>{id}</small>
             </h2>
             <br />
             <div className="Detail__content">
@@ -62,7 +126,7 @@ class Detail extends Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{escrow.id}</td>
+                    <td>{id}</td>
                     <td>{formatDate(escrow.createdAt)}</td>
                     <td>{escrow.buyer}</td>
                     <td>{escrow.seller}</td>
@@ -71,15 +135,29 @@ class Detail extends Component {
                   </tr>
                 </tbody>
               </table>
-              {ActionTypes.map(action => (
-                <button
-                  key={action}
-                  className="button button-outline"
-                  onClick={this.handleClick(action)}
-                >
-                  {action}
-                </button>
-              ))}
+
+              {
+                ActionTypes.map(action => {
+                  let show = true
+                  switch (action.show) {
+                    case 'seller':
+                      show = isSeller
+                      break;
+                    case 'buyer':
+                      show = isBuyer
+                      break;
+                  }
+
+                  return action.status === escrow.status && show ? (
+                    <button
+                      key={action.name}
+                      className="button button-outline"
+                      onClick={this.handleClick(action)}
+                    >
+                      {action.name}
+                    </button>
+                  ) : ''})
+              }
             </div>
           </Fragment>
         )}
