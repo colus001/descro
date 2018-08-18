@@ -7,7 +7,7 @@ import Activity from './Activity'
 
 export const getContracts = (contract) => (escrowsId) => Promise.all(
   escrowsId.map((rawId) => {
-    const id = rawId.toNumber()
+    const id = typeof rawId === 'number' ? rawId : rawId.toNumber()
     return contract.escrows.call(id).then(escrow => ([...escrow, id]))
   })
 )

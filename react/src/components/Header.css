@@ -56,6 +56,14 @@
 	text-align: left;
 }
 
+.header__buttons {
+	text-align: center;
+}
+
+.header__buttons :first-child {
+	margin-right: 1rem;
+}
+
 .balance-wrap {
 	text-align: left;
 }
