@@ -14,6 +14,7 @@ const STATUS = map({
   CANCELLED: 4,
   COMPLETED: 5,
   REFUNDED: 6,
+  IN_DISPUTE: 7,
 }, (index, key) => ({ index, status: key }))
 
 export const formatStatus = (status) => STATUS[status] && STATUS[status].status
