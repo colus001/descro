@@ -17,9 +17,8 @@ contract Descro is Business, Escrows {
     _addNewEscrow(msg.sender, _seller, msg.value, DEPOSITED);
   }
 
-  function deposit(uint _id) external payable onlyStatus(_id, DEPOSITED) {
+  function deposit(uint _id) external payable onlyBuyer(_id) onlyStatus(_id, DEPOSITED) {
     Escrow storage escrow = escrows[_id];
-    require(msg.sender == escrow.buyer);
     escrow.balance += msg.value;
     logEscrow(_id, escrow);
   }
