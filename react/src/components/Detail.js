@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { addDays } from 'date-fns'
 
 import { formatDate, formatStatus, STATUS } from '../utils/formatters'
 import { loadingTime } from '../settings'
@@ -6,6 +7,7 @@ import { parseContract } from './EscrowList'
 import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
 
 import Badge from '../components/Badge'
+import User from '../components/User'
 import Modal from './Modal'
 import Loading from './Loading'
 import history from '../history'
@@ -205,22 +207,24 @@ class Detail extends Component {
                 <table>
                   <thead>
                     <tr>
-                      <th>Contract #</th>
-                      <th>Date</th>
-                      <th>buyer</th>
-                      <th>seller</th>
+                      <th>Contract ID</th>
+                      <th>Created At</th>
+                      <th>Deposit</th>
                       <th>Status</th>
-                      <th>value</th>
+                      <th>Expired At</th>
+                      <th>Buyer</th>
+                      <th>Seller</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>{id}</td>
                       <td>{formatDate(escrow.createdAt)}</td>
+                      <td>{escrow.balance} ETH</td>
+                      <td><div><Badge status={escrow.status} showIcon /></div></td>
+                      <td>{formatDate(addDays(escrow.createdAt, 14))}</td>
                       <td>{escrow.buyer}</td>
                       <td>{escrow.seller}</td>
-                      <td><div><Badge status={escrow.status} showIcon /></div></td>
-                      <td>{escrow.balance} ether</td>
                     </tr>
                   </tbody>
                 </table>
