@@ -155,7 +155,7 @@ class Header extends Component {
             </div>
 	        </Container>
 	      </div>
-	      <Modal isShow={isShow} hideModal={this.handleModal(false)}>
+	      <Modal isShow={isShow} hideModal={this.handleModal(false)} showBtns={true} confirmFunc={this.createEscrow}>
 	        <h3>Create New Escrow</h3>
 
           <label htmlFor="buyerAddress">
@@ -180,11 +180,6 @@ class Header extends Component {
           />
 
           <hr />
-
-          <div className="header__buttons">
-            <button className="button" onClick={this.handleModal(false)}>Cancel</button>
-            <button className="button" onClick={this.createEscrow}>Confirm</button>
-          </div>
 	      </Modal>
 	    </Fragment>
 		)
