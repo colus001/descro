@@ -26,11 +26,16 @@ class Balance extends Component {
   }
 
   refresh = () => {
+    const { address } = this.props
+    if (!address) {
+      return
+    }
+
     this.setState({
       isLoading: true,
     }, () => {
       getWeb3()
-        .then((instance) => instance.eth.getBalance(this.props.address))
+        .then((instance) => instance.eth.getBalance(address))
         .then((balance) => this.props.setBalance(weiToEther(balance)))
         .then(() => this.setState({ isLoading: false }))
     })
