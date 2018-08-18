@@ -150,7 +150,7 @@ class Header extends Component {
                   <div className="intro-title">DESCRO</div>
                   <div className="intro-body">Decentralized Escrow for Ethereum</div>
                 </div>
-                <button className="btn" onClick={this.handleModal(true)}>Start Deal</button>
+                <button className="btn" onClick={this.handleModal(true)}>Create Escrow</button>
               </div>
             </div>
 	        </Container>
