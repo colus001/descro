@@ -19,12 +19,16 @@ class Modal extends Component {
 	}
 
 	render() {
-		const { children, isShow, wrapperClass } = this.props
+		const { children, isShow, className, showBtns, cancelFunc, confirmFunc } = this.props
 
 		return isShow && (
 			<Fragment>
-				<div className={classNames('modal', wrapperClass)}>
-					{children}
+				<div className={classNames('modal', className)}>
+          {children}
+          {showBtns && <div>
+            <button className="button button-outline" onClick={cancelFunc || cancelFunc || null}>Cancel</button>
+            <button className="button" onClick={confirmFunc && confirmFunc}>Confirm</button>
+          </div>}
 				</div>
 				<div className="modal-bg" onClick={this.hideModal} />
 			</Fragment>
