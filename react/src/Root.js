@@ -10,6 +10,7 @@ import history from './history'
 import { getWeb3, getDescro } from './utils/ethereum'
 
 import 'milligram/dist/milligram.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
 class Root extends Component {
   state = {
