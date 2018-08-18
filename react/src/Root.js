@@ -21,13 +21,6 @@ class Root extends Component {
     getWeb3()
       .then(getDescro)
       .then(this.props.setContract)
-      // .then(getWeb3)
-      // .then((instance) => instance.eth.getAccounts())
-      // .then((addresses) => {
-      //   const [address] = addresses
-      //   if (!address) return
-      //   this.props.setWalletAddress(address)
-      // })
   }
 
   render() {
