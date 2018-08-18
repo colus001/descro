@@ -23,6 +23,7 @@
 }
 
 .Badge--refunded,
+.Badge--cancelled,
 .Badge--in_dispute {
   color: white;
   background-color: #ec155d;
