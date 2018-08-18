@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 
 import { formatDate, formatStatus, STATUS } from '../utils/formatters'
+import { loadingTime } from '../settings'
 import { parseContract } from './EscrowList'
 import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
 import Modal from './Modal'
@@ -125,7 +126,7 @@ class Detail extends Component {
         this.setState({ isLoading: true })
         setTimeout(() => {
           this.getDetailData(true)
-        }, 7000)
+        }, loadingTime)
       })
       .catch(console.error)
   }

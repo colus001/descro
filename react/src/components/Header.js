@@ -4,10 +4,12 @@ import { validate } from 'wallet-address-validator'
 
 import Container from './Container'
 import Modal from './Modal'
+import Loading from './Loading'
 import BalanceContainer from '../containers/BalanceContainer'
 
 import history from '../history'
-import { etherToWei } from '../utils/ethereum'
+import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
+import { loadingTime } from '../settings'
 
 import './Header.css'
 
@@ -99,6 +101,12 @@ class Header extends Component {
           isShow: false,
           startAddress: '',
           buyerValue: '',
+        }, () => {
+          setTimeout(() => {
+            getWeb3()
+              .then((instance) => instance.eth.getBalance(this.props.address))
+              .then((balance) => this.props.setBalance(weiToEther(balance)))
+          }, loadingTime)
         })
       })
       .catch(console.error)
@@ -110,8 +118,8 @@ class Header extends Component {
   }
 
   render() {
-    const {isShow, startAddress, searchAddress, buyerValue} = this.state
-    const {address} = this.props
+    const { isShow, startAddress, searchAddress, buyerValue } = this.state
+    const { address } = this.props
 
     return (
 			<Fragment>

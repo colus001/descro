@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   clearWallet: () => dispatch(clearWallet(null)),
+  setBalance: (balance) => dispatch(setBalance(balance)),
 })
 
 export default connect(
