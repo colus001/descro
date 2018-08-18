@@ -37,32 +37,30 @@ class Welcome extends Component {
   render() {
     if (this.props.address) {
       return (
-        <Redirect to="/activity" />
+      <Redirect to="/activity" />
       )
     }
 
     return (
       <div className="Welcome">
-        <div>
+        <h3>Welcome to Descro</h3>
+        <div className="Welcome__metamask">
           <button type="button">
-            Login with MetaMask
-            {' '}
-            <i className="fab fa-lg fa-firefox" />
+            Login with MetaMask <i className="fab fa-lg fa-firefox" />
           </button>
         </div>
+        <div className="Welcome__address">
+          <input
+            id="address"
+            type="text"
+            placeholder="Enter your ethereum address"
+            onChange={this.handleChangeAddress}
+          />
 
-        <hr />
-
-        <input
-          id="address"
-          type="text"
-          placeholder="Enter your ethereum address"
-          onChange={this.handleChangeAddress}
-        />
-
-        <button type="button" onClick={this.handleSubmit}>
-          Login with Address
-        </button>
+          <button type="button" onClick={this.handleSubmit}>
+            Login with Address
+          </button>
+        </div>
       </div>
     )
   }

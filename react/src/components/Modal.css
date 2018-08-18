@@ -5,10 +5,10 @@
   bottom: auto;
   overflow: scroll;
   margin: auto;
-  padding: 1rem 2rem;
+  padding: 3rem 2rem;
   transform: translate(-50%, -55%);
   max-width: 60rem;
-  min-width: 40rem;
+  min-width: 50rem;
   max-height: 90%;
   background: #fff;
   z-index: 3;

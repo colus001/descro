@@ -72,14 +72,14 @@ class Header extends Component {
       pathname: '/escrows',
       id: searchAddress,
     })
-    
+
     this.setState({
       searchAddress: ''
     })
   }
 
   createEscrow = () => {
-    const {startAddress, buyerValue} = this.state;
+    const {startAddress, buyerValue} = this.state
 
     if (!startAddress || startAddress.length === 0) {
       alert('You are not ready to start!')
@@ -101,24 +101,24 @@ class Header extends Component {
       return
     }
 
-    this.props.contract
-      .createNewEscrow
+    this.props.contract.createNewEscrow
       .sendTransaction(startAddress, { from: this.props.address, value: etherToWei(buyerValue) })
-      .then((contract) => {
-        console.log(contract); // contract
+      .then(
+        contract => {
+          console.log(contract) // contract
 
-        if (contract) {
-          alert('The escrow was successfully created.')
-          
-          this.setState({
-            isShow: false,
-            startAddress: '',
-            buyerValue: '',
-          })
-        }
-      }, (err) => {
-        err && console.error(err)
-      })
+          if (contract) {
+            alert('The escrow was successfully created.')
+
+            this.setState({
+              isShow: false,
+              startAddress: '',
+              buyerValue: '',
+            })
+          }
+        }, (err) => {
+          err && console.error(err)
+        })
   }
 
   handleLogout = () => {
@@ -131,55 +131,62 @@ class Header extends Component {
     const {address} = this.props
 
     return (
-			<Fragment>
-	      <div className="header">
-	        <Container>
-	          <div className="header--top">
-	            <Link to="/" className="header--logo">
-								DESCRO
-							</Link>
-	            <div className="header--search">
-	              <input
-									type="text"
-									className='header--search-input'
-									placeholder="Search for a escrow by address"
-									value={searchAddress}
-                  onChange={this.handleChangeInput('searchAddress')}
-                  onKeyPress={this.handelKeyupSearch}
-								/>
-                <i className="fas fa-search header--search-icon" onClick={this.handleSearch} />
-	            </div>
-							<div className="header--address">
-								{this.props.address ? (
-									<Fragment>
-										<Link to={{ pathname: '/escrows', id: address }}><button>My Account</button></Link>
-										<button onClick={this.handleLogout}>Logout</button>
-									</Fragment>
-								) : (
-									<Link to="/">Login</Link>
-								)}
-							</div>
-	          </div>
-	          <div className="header--bottom">
-              {this.props.balance && (
-                <Balance balance={this.props.balance} />
+      <Fragment>
+        <div className="header">
+          <div className="header--top">
+            <Link to="/" className="header--logo">
+              DESCRO
+            </Link>
+            <div className="header--search">
+              <input
+                type="text"
+                className="header--search-input"
+                placeholder="Search for a escrow by address"
+                value={searchAddress}
+                onChange={this.handleChangeInput('searchAddress')}
+                onKeyPress={this.handelKeyupSearch}
+              />
+              <i className="fas fa-search header--search-icon" onClick={this.handleSearch} />
+            </div>
+            <div className="header--address">
+              {this.props.address ? (
+                <Fragment>
+                  <Link to={{ pathname: '/escrows', id: address }}>
+                    <button className="button button-clear">My Account</button>
+                  </Link>
+                  <button className="button button-clear" onClick={this.handleLogout}>
+                    Logout
+                  </button>
+                </Fragment>
+              ) : (
+                <Link to="/">
+                  <button className="button button-clear">Login</button>
+                </Link>
               )}
+            </div>
+          </div>
+          <Container>
+            <div className="header--bottom">
+              {this.props.balance && <Balance balance={this.props.balance} />}
               <div className="header--action">
                 <div className="header--intro">
-                  <div className="intro-title">DESCRO</div>
-                  <div className="intro-body">Decentralized Escrow for Ethereum</div>
+                  <div className="intro-body">
+                    Decentralized Escrow for Ethereum. Send and Receive Ether with Escrow
+                    Protection. To use Descro, connection to an Ethereum node is required. We
+                    recommend the Metamask chrome extension.
+                  </div>
                 </div>
-                <button className="btn" onClick={this.handleModal(true)}>Start Deal</button>
+                <button className="btn" onClick={this.handleModal(true)}>
+                  Start Deal
+                </button>
               </div>
             </div>
-	        </Container>
-	      </div>
-	      <Modal isShow={isShow} hideModal={this.handleModal(false)}>
-	        <h3>Create New Escrow</h3>
+          </Container>
+        </div>
+        <Modal isShow={isShow} hideModal={this.handleModal(false)}>
+          <h3>Create New Escrow</h3>
 
-          <label htmlFor="buyerAddress">
-            Seller Address
-          </label>
+          <label htmlFor="buyerAddress">Seller Address</label>
           <input
             type="text"
             id="buyerAddress"
@@ -187,9 +194,7 @@ class Header extends Component {
             value={startAddress}
             onChange={this.handleChangeInput('startAddress')}
           />
-          <label htmlFor="buyerValue">
-            Amount
-          </label>
+          <label htmlFor="buyerValue">Amount</label>
           <input
             type="text"
             id="buyerValue"
@@ -201,12 +206,16 @@ class Header extends Component {
           <hr />
 
           <div className="header__buttons">
-            <button className="button" onClick={this.handleModal(false)}>Cancel</button>
-            <button className="button" onClick={this.createEscrow}>Confirm</button>
+            <button className="button" onClick={this.handleModal(false)}>
+              Cancel
+            </button>
+            <button className="button" onClick={this.createEscrow}>
+              Confirm
+            </button>
           </div>
-	      </Modal>
-	    </Fragment>
-		)
+        </Modal>
+      </Fragment>
+    )
   }
 }
 

@@ -1,4 +1,28 @@
 .Welcome {
-  max-width: 50rem;
-  margin: 2rem auto;
+  max-width: 60rem;
+  margin: 8rem auto;
+}
+
+.Welcome__metamask {
+  margin-bottom: 1rem;
+}
+
+.Welcome__metamask button {
+  width: 100%;
+  height: 5rem;
+}
+
+.Welcome__address {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Welcome__address input {
+  width: 385px !important;
+  height: 5rem !important;
+}
+
+.Welcome__address button {
+  height: 5rem;
+  margin-right: 0;
 }
