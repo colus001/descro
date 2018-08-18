@@ -29,7 +29,6 @@ class EscrowList extends Component {
         contract
           .getEscrowsByBuyer(address)
           .then(getContracts(contract))
-          // .then(console.log)
           .then((escrows) => escrows.map(parseContract)),
         contract
           .getEscrowsBySeller(address)
