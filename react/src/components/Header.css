@@ -5,8 +5,13 @@
   width: 100%;
   min-height: 80px;
   height: 360px;
-  background: #00e4ef;
+  background: #00ffff8c;
   color: #fff;
+  background-image: url(/bg.png);
+  background-size: 44.3rem;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: bottom;
 }
 
 .header--top {
@@ -15,7 +20,7 @@
   align-items: center;
   width: 100%;
   min-height: 60px;
-  background: #008b91;
+  background: #00cdfa;
   padding: 0 20px;
 }
 
