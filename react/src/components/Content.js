@@ -11,7 +11,7 @@ import './Content.css'
 class Content extends Component {
 	render() {
 		return (
-			<div className="Content">
+			<div className="Content container">
 				<Switch>
 					<Route exact path="/" component={Welcome}/>
 					<Route path="/activity" component={LatestEscrows}/>

@@ -38,26 +38,19 @@ class Activity extends Component {
               <td><Badge status={escrow.status} showIcon /></td>
               <td>{formatDate(addDays(escrow.createdAt, 14))}</td>
               <td>
-                {/* <td className="Activity__td">
-                  <strong>Buyer</strong> {escrow.buyer}
+                <td className="Activity__td">
+                  <User type="buyer" hideText />
+                  {' '}
+                  {escrow.buyer}
                 </td>
                 <td className="Activity__td">
-                  <strong>Seller</strong> {escrow.seller}
+                  <User type="seller" hideText />
+                  {' '}
+                  {escrow.seller}
                 </td>
                 <td className="Activity__td">
                   <strong>Expired</strong> {formatDate(addDays(escrow.createdAt, 14))}
                 </td>
-              </td>
-              <td>{escrow.balance} ETH</td> */}
-                <User type="buyer" hideText />
-                {' '}
-                {escrow.buyer}
-                <br />
-
-                <User type="seller" hideText />
-                {' '}
-                {escrow.seller}
-                <br />
               </td>
             </tr>
           ))}
