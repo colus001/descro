@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { validate } from 'wallet-address-validator'
 
+import { getWeb3 } from '../utils/ethereum'
 import { setWalletAddress } from '../state/actions/wallet'
 
 import './Welcome.css'
@@ -34,6 +35,16 @@ class Welcome extends Component {
     })
   }
 
+  handleMetaMaskLogin = () => {
+    getWeb3()
+      .then((instance) => instance.eth.getAccounts())
+      .then((addresses) => {
+        const [address] = addresses
+        if (!address) return
+        this.props.setWalletAddress(address)
+      })
+  }
+
   render() {
     if (this.props.address) {
       return (
@@ -44,7 +55,10 @@ class Welcome extends Component {
     return (
       <div className="Welcome">
         <div>
-          <button type="button">
+          <button
+            type="button"
+            onClick={this.handleMetaMaskLogin}
+          >
             Login with MetaMask
             {' '}
             <i className="fab fa-lg fa-firefox" />
