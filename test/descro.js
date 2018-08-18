@@ -10,6 +10,9 @@ contract('Descro', function (accounts) {
   const owner = accounts[0];
   let descro;
 
+  const getStatus = (id) => () => descro.escrows.call(id)
+    .then((escrow) => escrow[escrow.length - 1].toNumber())
+
   it('should make create function below 250,000', () => {
     const buyer = accounts[1];
     const seller = accounts[2];
@@ -70,9 +73,6 @@ contract('Descro', function (accounts) {
     const seller = accounts[6];
     let escrowId;
 
-    const getStatus = (id) => () => descro.escrows.call(id)
-      .then((escrow) => escrow[escrow.length - 1].toNumber())
-
     return Descro.deployed()
       .then((instance) => { descro = instance })
       .then(() => descro.createNewEscrow.sendTransaction(seller, { from: buyer, value: etherToWei(TEST_AMOUNT) }))
@@ -122,9 +122,6 @@ contract('Descro', function (accounts) {
     const seller = accounts[8];
     let escrowId;
 
-    const getStatus = (id) => () => descro.escrows.call(id)
-      .then((escrow) => escrow[escrow.length - 1].toNumber())
-
     return Descro.deployed()
       .then((instance) => { descro = instance })
       .then(() => descro.createNewEscrow.sendTransaction(seller, {
@@ -169,9 +166,6 @@ contract('Descro', function (accounts) {
   //   const seller = accounts[8];
   //   let escrowId;
   //
-  //   const getStatus = (id) => () => descro.escrows.call(id)
-  //     .then((escrow) => escrow[escrow.length - 1].toNumber())
-  //
   //   return Descro.deployed()
   //     .then((instance) => { descro = instance })
   //     .then(() => descro.createNewEscrow.sendTransaction(buyer, seller, {
@@ -197,9 +191,6 @@ contract('Descro', function (accounts) {
     const buyer = accounts[7];
     const seller = accounts[8];
     let escrowId;
-
-    const getStatus = (id) => () => descro.escrows.call(id)
-      .then((escrow) => escrow[escrow.length - 1].toNumber())
 
     return Descro.deployed()
       .then((instance) => { descro = instance })
@@ -230,6 +221,54 @@ contract('Descro', function (accounts) {
       })
       .then((balance) => {
         assert.equal(weiToEther(balance), 0, 'Balance should be empty(0)')
+      })
+  })
+
+  it('should be able to dispute after product sent', () => {
+    const TEST_AMOUNT = 0.5;
+
+    const owner = accounts[0];
+    const buyer = accounts[8];
+    const seller = accounts[7];
+    let escrowId;
+
+    Descro.deployed()
+      .then((instance) => { descro = instance })
+      .then(() => descro.createNewEscrow.sendTransaction(seller, {
+        from: buyer,
+        value: etherToWei(TEST_AMOUNT),
+      }))
+      .then(() => descro.getEscrowsByBuyer.call(buyer))
+      .then((escrowIds) => {
+        assert.isAtLeast(escrowIds.length, 1, 'Escrow has not been created')
+        escrowId = escrowIds[escrowIds.length - 1]
+
+        return descro.sendProduct
+          .sendTransaction(escrowId, { from: seller })
+          .then(getStatus(escrowId));
+      })
+      .then((status) => {
+        assert.equal(status, STATUS.PRODUCT_SENT, 'Escrow has not been sent product properly')
+
+        return descro.dispute
+          .sendTransaction(escrowId, { from : buyer })
+          .then(getStatus(escrowId))
+      })
+      .then((status) => {
+        assert.equal(status, STATUS.IN_DISPUTE, 'Escrow has not been set in dispute properly')
+
+        return descro.arbitrate
+          .sendTransaction(escrowId, STATUS.COMPLETED)
+          .then(() => assert.equal(true, false, "Should crash if status is other than approved and cancelled"))
+          .catch((error) => assert.equal(true, true))
+      })
+      .then(() => {
+        return descro.arbitrate
+          .sendTransaction(escrowId, STATUS.CANCELLED, { from : owner })
+          .then(getStatus(escrowId))
+      })
+      .then((status) => {
+        assert.equal(status, STATUS.CANCELLED, 'Escrow has not been cancelled properly')
       })
   })
 

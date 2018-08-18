@@ -17,9 +17,8 @@ contract Descro is Business, Escrows {
     _addNewEscrow(msg.sender, _seller, msg.value, DEPOSITED);
   }
 
-  function deposit(uint _id) external payable onlyStatus(_id, DEPOSITED) {
+  function deposit(uint _id) external payable onlyBuyer(_id) onlyStatus(_id, DEPOSITED) {
     Escrow storage escrow = escrows[_id];
-    require(msg.sender == escrow.buyer);
     escrow.balance += msg.value;
     logEscrow(_id, escrow);
   }
@@ -58,6 +57,21 @@ contract Descro is Business, Escrows {
     escrow.buyer.transfer(escrow.balance);
     escrow.balance = 0;
     escrow.status = REFUNDED;
+
+    logEscrow(_id, escrow);
+  }
+
+  function dispute(uint _id) external onlyBuyerOrSeller(_id) onlyStatus(_id, PRODUCT_SENT) {
+    Escrow storage escrow = escrows[_id];
+    escrow.status = IN_DISPUTE;
+
+    logEscrow(_id, escrow);
+  }
+
+  function arbitrate(uint _id, uint8 _status) external onlyOwner onlyStatus(_id, IN_DISPUTE) {
+    Escrow storage escrow = escrows[_id];
+    require(_status == APPROVED || _status == CANCELLED);
+    escrow.status = _status;
 
     logEscrow(_id, escrow);
   }

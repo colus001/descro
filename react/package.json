@@ -15,6 +15,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
+    "redux-persist": "^5.10.0",
     "truffle-contract": "^3.0.6",
     "wallet-address-validator": "^0.1.7",
     "web3": "^1.0.0-beta.34"
