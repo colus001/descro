@@ -1,0 +1,33 @@
+.Detail__item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dadada;
+  line-height: 3;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+}
+
+.Detail__item-title {
+  text-transform: capitalize;
+  width: 100px;
+  text-align: left;
+}
+
+.Detail__item-content {
+  text-align: left;
+}
+
+.Detail__content table {
+  display: flex;
+}
+
+.Detail__content tr,
+.Detail__content td {
+  display: flex;
+  flex-direction: column;
+}
+
+.Detail__content tr:first-child,
+.Detail__content th:first-child {
+  padding: 1.2rem 1.5rem;
+}

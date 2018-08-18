@@ -6,7 +6,6 @@ import { setEscrows } from '../state/actions/escrows'
 
 const mapStateToProps = (state) => ({
   contract: state.contract,
-  address: state.wallet.address,
   escrows: state.escrows,
 })
 

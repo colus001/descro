@@ -17,12 +17,23 @@
 }
 
 .header--search {
-	margin-left: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  position: relative;
+  width: 250px;
 }
 
 .header--search-input {
-	margin-bottom: 0;
-	color: #fff;
+  margin-bottom: 0;
+  color: #fff;
+  padding-right: 30px !important;
+}
+
+.header--search-icon {
+  position: absolute;
+  right: 10px; 
+  cursor: pointer;
 }
 
 .header--address {
