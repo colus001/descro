@@ -21,6 +21,7 @@
 
 .Footer__group {
   max-width: 500px;
+  word-break: keep-all;
 }
 
 .group a {
