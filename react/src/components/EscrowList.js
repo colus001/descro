@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import history from '../history'
 
 import { weiToEther } from '../utils/ethereum'
 
@@ -25,11 +24,9 @@ export const parseContract = (escrow) => ({
 class EscrowList extends Component {
   componentDidMount() {
     const { location } = this.props
-    const address = location.id;
+    const address = location.id
 
-    if (!address) {
-      history.push('/')
-    } else {
+    if (address) {
       this.getAllEscrows(address)
     }
   }
@@ -52,9 +49,8 @@ class EscrowList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-		if (this.props.location.id !== nextProps.location.id) {
-			this.getAllEscrows(nextProps.location.id)
-		}
+		if (this.props.location.id === nextProps.location.id) return
+    this.getAllEscrows(nextProps.location.id)
 	}
 
   render() {

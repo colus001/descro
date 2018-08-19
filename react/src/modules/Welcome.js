@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { validate } from 'wallet-address-validator'
+import { Redirect } from 'react-router-dom'
 
 import { getWeb3 } from '../utils/ethereum'
 import { setWalletAddress } from '../state/actions/wallet'
@@ -13,7 +13,13 @@ class Welcome extends Component {
     address: ''
   }
 
-  handleSubmit = () => {
+  handleChangeAddress = (evt) => {
+    this.setState({
+      address: evt.target.value,
+    })
+  }
+
+  handleAddressLogin = () => {
     const { address } = this.state
 
     if (!address || address.length === 0) {
@@ -29,12 +35,6 @@ class Welcome extends Component {
     this.props.setWalletAddress(address)
   }
 
-  handleChangeAddress = (evt) => {
-    this.setState({
-      address: evt.target.value,
-    })
-  }
-
   handleMetaMaskLogin = () => {
     getWeb3()
       .then((instance) => instance.eth.getAccounts())
@@ -48,7 +48,7 @@ class Welcome extends Component {
   render() {
     if (this.props.address) {
       return (
-      <Redirect to="/activity" />
+        <Redirect to="/activity" />
       )
     }
 
@@ -72,7 +72,7 @@ class Welcome extends Component {
             placeholder="Enter your ethereum address"
             onChange={this.handleChangeAddress}
           />
-          <button type="button" onClick={this.handleSubmit}>
+          <button type="button" onClick={this.handleAddressLogin}>
             Login with Address
           </button>
         </div>
