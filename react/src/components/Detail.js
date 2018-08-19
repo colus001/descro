@@ -132,13 +132,13 @@ class Detail extends Component {
     }
   }
 
-  contractFunc(funcNs, opt) {
-    if (!funcNs) return
+  contractFunc(func, opt) {
+    if (!func) return
 
     const { contract, address } = this.props
     const { id } = this.state
 
-    contract[funcNs]
+    contract[func]
       .sendTransaction(id, { from: address, ...opt })
       .then((result) => { // success
         this.handleModal(false)
