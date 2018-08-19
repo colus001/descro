@@ -28,19 +28,24 @@ const getIconName = (status) => {
   }
 }
 
-const StatusBadge = ({ status, showIcon }) => (
-  <div
-    title={formatStatus(status)}
-    className={classNames('StatusBadge', {
-      [`StatusBadge--${formatStatus(status) && formatStatus(status).toLowerCase()}`]: !!status,
-    })}
-  >
-    {showIcon && (
-      <i className={getIconName(status)} />
-    )}
-    {showIcon && ' '}
-    {formatStatus(status)}
-  </div>
-)
+const StatusBadge = ({ status, showIcon }) => {
+  const statusText = formatStatus(status)
+  const readableText = statusText && statusText.replace(/_/, ' ')
+
+  return (
+    <div
+      title={readableText}
+      className={classNames('StatusBadge', {
+        [`StatusBadge--${statusText && statusText.toLowerCase()}`]: !!status,
+      })}
+    >
+      {showIcon && (
+        <i className={getIconName(status)} />
+      )}
+      {showIcon && ' '}
+      {readableText}
+    </div>
+  )
+}
 
 export default StatusBadge
