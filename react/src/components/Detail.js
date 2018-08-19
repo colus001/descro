@@ -6,7 +6,7 @@ import { loadingTime } from '../settings'
 import { parseContract } from './EscrowList'
 import { etherToWei, getWeb3, weiToEther } from '../utils/ethereum'
 
-import Badge from '../components/Badge'
+import StatusBadge from '../components/StatusBadge'
 import User from '../components/User'
 import Modal from './Modal'
 import Loading from './Loading'
@@ -213,7 +213,7 @@ class Detail extends Component {
                       <td>{id}</td>
                       <td>{formatDate(escrow.createdAt)}</td>
                       <td>{escrow.balance} ETH</td>
-                      <td><div><Badge status={escrow.status} showIcon /></div></td>
+                      <td><div><StatusBadge status={escrow.status} showIcon /></div></td>
                       <td>{formatDate(addDays(escrow.createdAt, 14))}</td>
                       <td className="Detail__type-wrap"><User type='buyer' hideText={true} />{escrow.buyer}{isBuyer && <span>YOU</span>}</td>
                       <td className="Detail__type-wrap"><User type='seller' hideText={true} />{escrow.seller}{isSeller && <span>YOU</span>}</td>

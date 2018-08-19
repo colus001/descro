@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { addDays } from 'date-fns'
 
-import Badge from '../components/Badge'
+import StatusBadge from '../components/StatusBadge'
 import User from '../components/User'
 
 import { formatDate, formatStatus } from '../utils/formatters'
@@ -35,7 +35,7 @@ class Activity extends Component {
               <td>{escrow.id}</td>
               <td>{formatDate(escrow.createdAt)}</td>
               <td>{escrow.balance} ETH</td>
-              <td><Badge status={escrow.status} showIcon /></td>
+              <td><StatusBadge status={escrow.status} showIcon /></td>
               <td>{formatDate(addDays(escrow.createdAt, 14))}</td>
               <td>
                 <td className="Activity__td">

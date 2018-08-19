@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import { formatStatus, STATUS } from '../utils/formatters'
 
-import './Badge.css'
+import './StatusBadge.css'
 
 const getIconName = (status) => {
   switch (status) {
@@ -18,6 +18,8 @@ const getIconName = (status) => {
       return 'fas fa-clipboard-check'
     case STATUS.CANCELLED:
       return 'fas fa-minus-circle'
+    case STATUS.COMPLETED:
+      return 'fas fa-check-double'
     case STATUS.REFUNDED:
       return 'fas fa-backward'
     case STATUS.IN_DISPUTE:
@@ -27,11 +29,11 @@ const getIconName = (status) => {
   }
 }
 
-const Badge = ({ status, showIcon }) => (
+const StatusBadge = ({ status, showIcon }) => (
   <div
     title={formatStatus(status)}
-    className={classNames('Badge', {
-      [`Badge--${formatStatus(status) && formatStatus(status).toLowerCase()}`]: !!status,
+    className={classNames('StatusBadge', {
+      [`StatusBadge--${formatStatus(status) && formatStatus(status).toLowerCase()}`]: !!status,
     })}
   >
     {showIcon && (
@@ -42,4 +44,4 @@ const Badge = ({ status, showIcon }) => (
   </div>
 )
 
-export default Badge
+export default StatusBadge

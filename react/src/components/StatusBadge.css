@@ -1,4 +1,4 @@
-.Badge {
+.StatusBadge {
   font-size: 1.2rem;
   display: inline-block;
   padding: .2rem .8rem 0;
@@ -7,25 +7,25 @@
   line-height: 2rem;
 }
 
-.Badge--created,
-.Badge--deposited {
+.StatusBadge--created,
+.StatusBadge--deposited {
   color: white;
   background-color: #9e9e9e;
 }
 
-.Badge--product_sent {
+.StatusBadge--product_sent {
   background-color: #9eec15;
 }
 
-.Badge--approved,
-.Badge--completed {
+.StatusBadge--approved,
+.StatusBadge--completed {
   color: white;
   background-color: #15e0ec;
 }
 
-.Badge--refunded,
-.Badge--cancelled,
-.Badge--in_dispute {
+.StatusBadge--refunded,
+.StatusBadge--cancelled,
+.StatusBadge--in_dispute {
   color: white;
   background-color: #ec155d;
 }
