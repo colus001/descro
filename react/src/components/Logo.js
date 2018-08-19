@@ -6,7 +6,7 @@ import logoSvg from '../static/logo.svg'
 
 const Logo = ({ className }) => (
   <Link to="/" className={classNames('Logo', className)}>
-    <img className="header--logoImage" src={logoSvg} />
+    <img alt="descro logo" className="header--logoImage" src={logoSvg} />
   </Link>
 )
 

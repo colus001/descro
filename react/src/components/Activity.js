@@ -5,7 +5,7 @@ import { sortBy } from 'lodash'
 import StatusBadge from '../components/StatusBadge'
 import User from '../components/User'
 
-import { formatDate, formatStatus } from '../utils/formatters'
+import { formatDate } from '../utils/formatters'
 import history from '../history'
 
 import './Activity.css'

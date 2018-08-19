@@ -13,21 +13,21 @@ class Footer extends Component {
             <Logo className="Footer__title" />
             <div className="group">
               <h3 className="title">contributors</h3>
-              <a target="_blank" href="https://github.com/colus001">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/colus001">
                 Alma
-                <span>🏄</span>
+                <span role="img" aria-label="Alma">🏄</span>
               </a>
-              <a target="_blank" href="#">
+              <a target="_blank" href="/#">
                 Sunghyun
-                <span>🐱</span>
+                <span role="img" aria-label="Sunghyun">🐱</span>
               </a>
-              <a target="_blank" href="https://github.com/cnaa97">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/cnaa97">
                 Junho
-                <span>🍺</span>
+                <span role="img" aria-label="Junho">🍺</span>
               </a>
-              <a target="_blank" href="https://github.com/yogicat">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/yogicat">
                 Ohda
-                <span>🌞</span>
+                <span role="img" aria-label="Ohda">🌞</span>
               </a>
             </div>
             <div className="group">

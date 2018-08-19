@@ -127,6 +127,8 @@ class Detail extends Component {
       case 'withdraw':
         this.contractFunc(actionName)
         break
+      default:
+        return
     }
   }
 
@@ -136,8 +138,7 @@ class Detail extends Component {
     const { contract, address } = this.props
     const { id } = this.state
 
-    contract
-      [funcNs]
+    contract[funcNs]
       .sendTransaction(id, { from: address, ...opt })
       .then((result) => { // success
         this.handleModal(false)

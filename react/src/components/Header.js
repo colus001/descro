@@ -4,7 +4,6 @@ import { validate } from 'wallet-address-validator'
 
 import Container from './Container'
 import Modal from './Modal'
-import Loading from './Loading'
 import Logo from './Logo'
 import BalanceContainer from '../containers/BalanceContainer'
 
