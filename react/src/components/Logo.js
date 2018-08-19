@@ -8,7 +8,7 @@ import './Logo.css'
 
 const Logo = ({ className }) => (
   <Link to="/" className={classNames('Logo', className)}>
-    <img alt="descro logo" src={logoSvg} />
+    <img alt="descro" src={logoSvg} />
   </Link>
 )
 
