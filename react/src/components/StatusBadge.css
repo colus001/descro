@@ -5,27 +5,21 @@
   height: 2.4rem;
   border-radius: 1.2rem;
   line-height: 2rem;
-}
-
-.StatusBadge--created,
-.StatusBadge--deposited {
   color: white;
   background-color: #9e9e9e;
 }
 
 .StatusBadge--product_sent {
-  background-color: #9eec15;
+  background-color: #16eb92;
 }
 
 .StatusBadge--approved,
 .StatusBadge--completed {
-  color: white;
   background-color: #15e0ec;
 }
 
 .StatusBadge--refunded,
 .StatusBadge--cancelled,
 .StatusBadge--in_dispute {
-  color: white;
   background-color: #ec155d;
 }
