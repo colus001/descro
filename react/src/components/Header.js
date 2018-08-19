@@ -122,21 +122,21 @@ class Header extends Component {
 
     return (
       <Fragment>
-        <div className="header">
-          <div className="header--top">
-            <Logo className="header--logo" />
-            <div className="header--search">
+        <div className="Header">
+          <div className="Header--top">
+            <Logo className="Header--logo" />
+            <div className="Header--search">
               <input
                 type="text"
-                className="header--search-input"
+                className="Header--search-input"
                 placeholder="Search for a escrow by address"
                 value={searchAddress}
                 onChange={this.handleChangeInput('searchAddress')}
                 onKeyPress={this.handelKeyupSearch}
               />
-              <i className="fas fa-search header--search-icon" onClick={this.handleSearch} />
+            <i className="fas fa-search Header--search-icon" onClick={this.handleSearch} />
             </div>
-            <div className="header--address">
+            <div className="Header--address">
               {this.props.address ? (
                 <Fragment>
                   <Link to={{ pathname: '/escrows', id: address }}>
@@ -154,17 +154,17 @@ class Header extends Component {
             </div>
           </div>
           <Container>
-            <div className="header--bottom">
+            <div className="Header--bottom">
               <BalanceContainer />
-              <div className="header--action">
-                <div className="header--intro">
+              <div className="Header--action">
+                <div className="Header--intro">
                   <div className="intro-body">
                     Decentralized Escrow for Ethereum. Send and Receive Ether with Escrow
                     Protection. To use Descro, connection to an Ethereum node is required. We
                     recommend the Metamask chrome extension.
                   </div>
                 </div>
-                <button className="header--introButton" onClick={this.handleModal(true)}>Create Escrow</button>
+                <button className="Header--introButton" onClick={this.handleModal(true)}>Create Escrow</button>
               </div>
             </div>
 	        </Container>

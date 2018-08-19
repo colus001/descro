@@ -23,14 +23,14 @@ class Modal extends Component {
 
 		return isShow && (
 			<Fragment>
-				<div className={classNames('modal', className)}>
+				<div className={classNames('Modal', className)}>
           {children}
           {showBtns && <div>
             <button className="button button-outline" onClick={cancelFunc || this.hideModal || null}>Cancel</button>
             <button className="button" onClick={confirmFunc && confirmFunc}>Confirm</button>
           </div>}
 				</div>
-				<div className="modal-bg" onClick={this.hideModal} />
+				<div className="Modal-bg" onClick={this.hideModal} />
 			</Fragment>
 		)
 	}

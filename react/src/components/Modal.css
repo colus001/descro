@@ -1,4 +1,4 @@
-.modal {
+.Modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -14,15 +14,15 @@
   z-index: 3;
 }
 
-.modal input:focus {
+.Modal input:focus {
   border-color: #606C76 !important;
 }
 
-.modal--msg {
+.Modal--msg {
   background: 0;
 }
 
-.modal-bg {
+.Modal-bg {
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
@@ -35,10 +35,10 @@
   justify-content: center;
 }
 
-.modal-bg > i {
+.Modal-bg > i {
   color: #fff;
 }
 
-.modal-open {
+.Modal-open {
   overflow: hidden;
 }

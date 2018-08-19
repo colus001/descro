@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="wrap">
         <HeaderContainer />
-        <div className="contentWrapper">
+        <div className="App__content">
           <Content />
         </div>
         <Footer />
