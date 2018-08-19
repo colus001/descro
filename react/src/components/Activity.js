@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { addDays } from 'date-fns'
+import { sortBy } from 'lodash'
 
 import StatusBadge from '../components/StatusBadge'
 import User from '../components/User'
@@ -30,7 +31,7 @@ class Activity extends Component {
           </tr>
         </thead>
         <tbody>
-          {escrows.map((escrow) => (
+          {sortBy(escrows, x => -x.createdAt).map((escrow) => (
             <tr className="Activity__link" key={escrow.id} onClick={this.onClickRow(escrow.id)}>
               <td>{escrow.id}</td>
               <td>{formatDate(escrow.createdAt)}</td>
