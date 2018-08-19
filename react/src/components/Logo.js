@@ -4,9 +4,11 @@ import classNames from 'classnames'
 
 import logoSvg from '../static/logo.svg'
 
+import './Logo.css'
+
 const Logo = ({ className }) => (
   <Link to="/" className={classNames('Logo', className)}>
-    <img alt="descro logo" className="header--logoImage" src={logoSvg} />
+    <img alt="descro logo" src={logoSvg} />
   </Link>
 )
 
