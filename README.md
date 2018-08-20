@@ -26,3 +26,10 @@
   ```
   $ npm start
   ```
+
+### Contributors
+
+[sunghyun](designer)
+[junho](https://github.com/cnaa97)
+[ohda](https://github.com/yogicat)
+[alma](https://github.com/colus001)
