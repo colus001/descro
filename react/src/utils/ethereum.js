@@ -51,15 +51,13 @@ export const getDescro = ((descro) => (web3) => new Promise((resolve, reject) =>
     }
   }
 
-  web3.eth.getAccounts((error, accounts) => {
-    descroContract.deployed()
-      .then((instance) => {
-        console.info('descro contract initiation completed')
-        descro = instance
-        resolve(descro)
-      })
-      .catch(reject)
-  })
+  descroContract.deployed()
+    .then((instance) => {
+      console.info('descro contract initiation completed')
+      descro = instance
+      resolve(descro)
+    })
+    .catch(reject)
 }))(undefined)
 
 export const weiToEther = (wei) => wei / 1000000000000000000
